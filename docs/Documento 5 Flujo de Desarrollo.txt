@@ -1,0 +1,131 @@
+Documento 5: Flujo de Desarrollo
+Este documento detalla los pasos necesarios para construir el boilerplate NextPlate, asegurando un enfoque iterativo, eficiente y escalable. El resultado será un boilerplate funcional, moderno y fácil de personalizar.
+
+Paso 1: Configurar el Proyecto
+Objetivo: Establecer la base técnica del proyecto.
+
+Acciones:
+
+Inicializar un proyecto Next.js con TypeScript usando el comando:
+npx create-next-app@latest nextplate --typescript
+
+Instalar las dependencias principales:
+npm install @shadcn/ui @supabase/supabase-js next-themes next-intl react-cookie-consent stripe openai
+
+Configurar Shadcn y next-themes en el archivo tailwind.config.js.
+Crear un archivo .env.local para almacenar claves de API (Supabase, Stripe, OpenAI, Mailgun).
+Resultado: Proyecto base configurado con todas las dependencias instaladas.
+
+Paso 2: Configurar la Base de Datos (Supabase)
+Objetivo: Preparar Supabase para autenticación y almacenamiento de datos.
+
+Acciones:
+
+Crear un proyecto en Supabase y obtener las claves API.
+Configurar la conexión en un archivo /lib/supabase.ts.
+Definir tablas iniciales como users (para usuarios) y legal_documents (para documentos legales).
+Habilitar Row Level Security (RLS) para proteger los datos sensibles.
+Resultado: Base de datos conectada y operativa.
+
+Paso 3: Integrar Mailgun con Supabase para Correos de Autenticación
+Objetivo: Configurar Mailgun como proveedor SMTP en Supabase para enviar correos de autenticación (ej. registro, recuperación de contraseña).
+
+Acciones:
+
+Crear una cuenta en Mailgun:
+Regístrate en Mailgun y verifica tu dominio.
+Obtener credenciales SMTP:
+En Mailgun, ve a "Sending" > "Domains", selecciona tu dominio y anota el host, puerto, usuario y contraseña SMTP.
+Configurar Supabase con Mailgun:
+En el dashboard de Supabase, ve a "Authentication" > "Providers" > "Email".
+Activa "Use a custom SMTP server" e ingresa las credenciales de Mailgun:
+Host: smtp.mailgun.org
+Port: 587
+User: Usuario SMTP de Mailgun.
+Password: Contraseña SMTP de Mailgun.
+From Email: Una dirección como no-reply@tudominio.com.
+Probar la configuración:
+Envía un correo de prueba desde Supabase (ej. recuperación de contraseña) para verificar que funciona correctamente.
+Resultado: Supabase utiliza Mailgun para enviar correos de autenticación de manera confiable.
+
+
+Paso 4: Implementar Autenticación
+Objetivo: Permitir a los usuarios registrarse, iniciar sesión y gestionar sus cuentas.
+
+Acciones:
+
+Configurar Supabase Auth en /pages/api/auth/[...supabase].ts.
+Diseñar páginas de login, registro y recuperación de contraseña usando componentes de Shadcn.
+Proteger rutas privadas con un middleware de autenticación en /middleware.ts.
+Resultado: Sistema de autenticación funcional y seguro.
+
+Paso 5: Diseñar la UI con Shadcn
+Objetivo: Crear una interfaz moderna, responsiva y personalizable.
+
+Acciones:
+
+Diseñar componentes reutilizables como header, footer y layouts principales.
+Implementar soporte para temas claro y oscuro con next-themes.
+Asegurar accesibilidad y diseño responsivo en todos los componentes.
+Resultado: Interfaz de usuario estilizada y lista para usar.
+
+Paso 6: Integrar Internacionalización
+Objetivo: Habilitar soporte multilingüe en la aplicación.
+
+Acciones:
+
+Configurar next-intl con archivos de traducción (por ejemplo, español e inglés) en /locales.
+Internacionalizar componentes de UI y documentos legales.
+Añadir un selector de idioma en la interfaz.
+Resultado: Aplicación multilingüe con traducciones dinámicas.
+
+Paso 7: Implementar Pagos con Stripe
+Objetivo: Procesar pagos únicos y suscripciones de forma segura.
+
+Acciones:
+
+Configurar Stripe en un endpoint /pages/api/stripe.ts.
+Crear un checkout para pagos y suscripciones en la UI.
+Implementar webhooks en /pages/api/webhooks/stripe.ts para manejar eventos de Stripe.
+Resultado: Sistema de pagos completamente funcional.
+
+Paso 8: Integrar OpenAI
+Objetivo: Añadir una funcionalidad básica de IA como ejemplo.
+
+Acciones:
+
+Crear un endpoint /pages/api/openai.ts para interactuar con la API de OpenAI.
+Diseñar un componente de ejemplo (por ejemplo, un generador de texto).
+Documentar cómo personalizar esta integración en el README.
+Resultado: Funcionalidad de IA operativa y extensible.
+
+Paso 9: Implementar Documentos Legales
+Objetivo: Proporcionar documentos legales editables y accesibles.
+
+Acciones:
+
+Crear rutas como /terms, /privacy y /cookies con contenido en Markdown.
+Añadir enlaces a estos documentos en el footer y durante el registro.
+Asegurar que sean traducibles con next-intl.
+Resultado: Documentos legales integrados y personalizables.
+
+Paso 10: Implementar Banner de Cookies
+Objetivo: Cumplir con regulaciones de privacidad como el GDPR.
+
+Acciones:
+
+Configurar react-cookie-consent en el layout principal (/app/layout.tsx o similar).
+Personalizar el banner para que sea traducible y combine con el diseño de la UI.
+Resultado: Banner de cookies funcional y conforme a normativas.
+
+Paso 11: Pruebas y Despliegue
+Objetivo: Garantizar la calidad y lanzar el boilerplate.
+
+Acciones:
+
+Escribir pruebas unitarias y de integración usando Jest.
+Desplegar la aplicación en Vercel con:
+vercel --prod
+
+Verificar conexiones (Supabase, Stripe, etc.) en producción.
+Resultado: Boilerplate lanzado y listo para usar.

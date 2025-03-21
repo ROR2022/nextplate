@@ -1,0 +1,114 @@
+Documento 8: Diseño de Sistemas para NextPlate
+
+Este documento detalla el diseño técnico de NextPlate, una plantilla preconfigurada para desarrollar aplicaciones web modernas de forma eficiente. Está diseñada para ser escalable, segura y fácilmente adaptable, siguiendo las mejores prácticas de desarrollo de software.
+
+1. Entender el Problema y Requisitos
+Clarificar el Problema
+NextPlate es un boilerplate que permite a los desarrolladores full-stack construir aplicaciones web con funcionalidades esenciales como autenticación (con envío confiable de correos), interfaz adaptable, pagos, soporte multilingüe, integración con IA y documentos legales, todo en un formato listo para personalizar y desplegar rápidamente.
+
+Usuarios y Casos de Uso
+Usuarios: Desarrolladores full-stack, startups y freelancers.
+Casos de Uso:
+Configurar autenticación segura con correos de confirmación y recuperación.
+Personalizar interfaces y documentos legales fácilmente.
+Integrar pagos y funcionalidades de IA sin complicaciones.
+Desplegar aplicaciones conformes a normativas legales.
+Requisitos Funcionales y No Funcionales
+Funcionales:
+Autenticación con email/contraseña y opciones sociales, usando Mailgun para correos de autenticación vía Supabase.
+Interfaz responsiva con soporte para temas claro y oscuro.
+Soporte multilingüe (español e inglés).
+Procesamiento de pagos con Stripe.
+Integración básica con OpenAI para IA.
+Documentos legales editables y banner de consentimiento de cookies.
+No Funcionales:
+Rendimiento: Carga en menos de 2 segundos.
+Escalabilidad: Soporte para 1,000 usuarios concurrentes.
+Seguridad: Protección contra CSRF, XSS y SQL Injection.
+Usabilidad: Configuración sencilla.
+Disponibilidad: 99.9% de uptime.
+Entregabilidad de Correos: Alta tasa con Mailgun.
+Suposiciones y Restricciones
+Suposiciones:
+Usuarios conocen Next.js y TypeScript.
+Despliegue en plataformas como Vercel.
+Restricciones:
+Uso de Supabase para autenticación y base de datos.
+Integración de Mailgun para correos.
+
+2. Arquitectura de Alto Nivel
+Componentes Clave
+Frontend: Next.js para páginas como login, dashboard y documentos legales.
+API Gateway: Rutas API de Next.js para autenticación, pagos e IA.
+Servicios Externos:
+Supabase Auth: Autenticación con correos gestionados por Mailgun.
+Supabase DB: Base de datos PostgreSQL.
+Stripe: Procesamiento de pagos.
+OpenAI: Funcionalidades de IA.
+Mailgun: Envío de correos electrónicos.
+Base de Datos: Supabase (PostgreSQL).
+Patrones de Comunicación
+Sincrónica: REST (HTTP) entre frontend y backend.
+Asincrónica: Webhooks de Stripe para eventos de pago.
+
+3. Diseño Detallado y Tecnologías
+Modelado de Datos
+Entidades:
+users: id, email, password (hash), plan, subscriptionId.
+legal_documents: id, type (términos/privacidad/cookies), content, language.
+Base de Datos: Supabase (PostgreSQL).
+Diseño de APIs
+Endpoints:
+POST /api/auth/login: Autenticación.
+POST /api/payments/create-checkout: Sesión de pago con Stripe.
+POST /api/openai/generate: Generación de contenido con OpenAI.
+Formato: JSON.
+Stack Tecnológico
+Lenguaje: TypeScript.
+Framework: Next.js.
+UI: Shadcn y TailwindCSS.
+Autenticación: Supabase Auth con Mailgun.
+Base de Datos: Supabase (PostgreSQL).
+Pagos: Stripe.
+IA: OpenAI.
+Internacionalización: next-intl.
+Temas: next-themes.
+Cookies: react-cookie-consent.
+Seguridad
+Encriptación: HTTPS/TLS.
+Autenticación: JWT vía Supabase.
+Cumplimiento: GDPR con documentos legales y cookies.
+Correos: Mailgun con SPF/DKIM.
+Escalabilidad
+Balanceo de Carga: Automático en Vercel.
+Cache: Opcional con Redis.
+
+4. Trade-offs y Alternativas
+Decisiones
+Supabase + Mailgun: Más flexible y económico que Firebase.
+Shadcn: Ligera y accesible frente a Material-UI.
+Next.js: SSR y rutas API integradas.
+Alternativas
+Base de Datos: MongoDB (NoSQL) vs. PostgreSQL (relacional).
+Autenticación: Auth0 como alternativa a Supabase + Mailgun.
+Correos: SendGrid vs. Mailgun.
+Resiliencia
+Fallos: Reintentos para Stripe y OpenAI.
+Circuit Breaker: No incluido en el MVP, pero opcional para servicios externos.
+
+5. Validar el Diseño
+Pruebas
+Unitarias: Jest para componentes.
+Integración: React Testing Library para flujos completos.
+Rendimiento: JMeter para 1,000 usuarios.
+Correos: Pruebas de entregabilidad con Mailgun.
+Monitoreo
+Logs: Vercel Logs o Sentry.
+Health Checks: Endpoints de estado.
+Correos: Analíticas de Mailgun.
+Recuperación
+Autoescalado: Vercel.
+Backups: Supabase.
+
+
+

@@ -1,0 +1,79 @@
+Documento 3: Requerimientos Técnicos
+Tecnologías y Herramientas
+Mailgun
+Uso: Servicio de envío de correos electrónicos configurado como proveedor SMTP personalizado en Supabase para gestionar correos de autenticación (confirmación de email, recuperación de contraseñas, etc.).
+Justificación: Mailgun permite usar un dominio personalizado, lo que mejora la entregabilidad y la reputación del remitente frente al servicio interno de Supabase, que tiene límites de envío y usa un dominio genérico. Además, ofrece seguimiento y análisis avanzados.
+Comparación: SendGrid o Resend son alternativas similares, pero Mailgun destaca por su confiabilidad y facilidad de integración con Supabase.
+Supabase
+Uso: Plataforma para autenticación de usuarios y gestión de base de datos (PostgreSQL).
+Justificación: Proporciona una solución integral con una API sencilla para Next.js. Al integrarse con Mailgun, optimiza el envío de correos para un boilerplate profesional.
+Comparación: Firebase es una opción, pero su modelo de precios y dependencia de Google Cloud lo hacen menos flexible que Supabase con Mailgun.
+Next.js
+Uso: Framework principal para la interfaz de usuario (UI) con React y rutas de API para el backend.
+Justificación: Ofrece renderizado del lado del servidor (SSR) y generación de sitios estáticos (SSG) para un rendimiento óptimo, con rutas de API integradas.
+Comparación: Create React App (CRA) no incluye SSR ni rutas de API nativas, lo que requiere más configuraciones.
+Shadcn
+Uso: Biblioteca de componentes UI accesibles y personalizables.
+Justificación: Componentes modernos que cumplen con WCAG 2.1 y son altamente adaptables.
+Comparación: Material-UI o Ant Design son más pesadas; Shadcn es ligera y enfocada en accesibilidad.
+TypeScript
+Uso: Lenguaje para todo el código, con tipado estático.
+Justificación: Reduce errores y mejora la mantenibilidad, ideal para un boilerplate profesional.
+Comparación: JavaScript puro carece de tipado, complicando la depuración.
+Stripe
+Uso: Procesamiento de pagos únicos y suscripciones recurrentes.
+Justificación: Fácil integración, soporte para webhooks y cumplimiento con PCI-DSS.
+Comparación: PayPal es menos optimizado para suscripciones; Stripe es ideal para SaaS.
+OpenAI
+Uso: API para funcionalidades de inteligencia artificial (generación de texto, chatbots).
+Justificación: Modelos avanzados y escalables para aplicaciones modernas.
+Comparación: Google Cloud AI es más costoso; OpenAI es eficiente y accesible.
+next-themes
+Uso: Gestión de temas claro y oscuro.
+Justificación: Simplifica la implementación de temas en Next.js.
+Comparación: Crear temas manualmente es propenso a errores; next-themes es confiable.
+next-intl
+Uso: Internacionalización para múltiples idiomas.
+Justificación: API intuitiva para traducciones, optimizada para Next.js.
+Comparación: react-intl no está tan integrada con Next.js.
+react-cookie-consent
+Uso: Banner de consentimiento de cookies para cumplir con GDPR.
+Justificación: Solución ligera y fácil de integrar.
+Comparación: Desarrollar un banner propio consume tiempo y puede fallar en cumplimiento.
+Requerimientos Funcionales
+RF1: Registro e inicio de sesión con email/contraseña o autenticación social (Google, GitHub).
+RF2: Envío de correos de confirmación y recuperación usando Mailgun vía Supabase.
+RF3: Interfaz responsiva con Shadcn y soporte para temas claro/oscuro.
+RF4: Soporte multilingüe (español e inglés) con next-intl.
+RF5: Procesamiento de pagos y suscripciones con Stripe y webhooks.
+RF6: Ejemplo funcional de OpenAI para generación de texto o chatbots.
+RF7: Páginas editables para Términos, Privacidad y Cookies.
+RF8: Banner de cookies con opciones para aceptar/rechazar cookies no esenciales.
+Requerimientos No Funcionales
+RNF1 - Rendimiento: Carga en menos de 2 segundos en conexiones estándar.
+RNF2 - Escalabilidad: Soporte para 1,000 usuarios concurrentes sin degradación.
+RNF3 - Seguridad: Protección contra CSRF, XSS, SQL Injection y cifrado de datos sensibles.
+RNF4 - Usabilidad: UI intuitiva con curva de aprendizaje mínima.
+RNF5 - Disponibilidad: Uptime del 99.9% en plataformas como Vercel.
+RNF6 - Mantenibilidad: Código basado en clean code y principios SOLID.
+RNF7 - Entregabilidad de Correos: Alta tasa de entregabilidad con Mailgun y configuraciones SPF/DKIM.
+Estructura de la Base de Datos (Supabase)
+Tabla users
+id: UUID.
+email: String (único, requerido).
+password: String (hash, opcional).
+plan: String ("free" | "premium", default: "free").
+subscriptionId: String (referencia a Stripe).
+createdAt: Timestamp.
+Propósito: Datos de autenticación y suscripción.
+Tabla legal_documents
+id: UUID.
+type: String ("terms" | "privacy" | "cookies").
+content: Text (Markdown o HTML).
+language: String (ej. "es", "en").
+Propósito: Documentos legales personalizables.
+Índices
+users.email: Índice único.
+legal_documents.type y legal_documents.language: Índices para filtrado.
+Justificación
+Supabase (PostgreSQL) ofrece una base de datos relacional escalable y segura, ideal para usuarios y documentos legales, con integración optimizada con Mailgun.

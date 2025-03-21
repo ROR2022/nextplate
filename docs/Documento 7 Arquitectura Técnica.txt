@@ -1,0 +1,160 @@
+Documento 7: Arquitectura Técnica
+Diagrama de Alto Nivel (Descripción en Texto)
+La arquitectura de NextPlate se compone de los siguientes componentes interconectados:
+
+[Usuario] <--> [Frontend: Next.js Pages] <--> [Backend: Next.js API Routes]
+    |                   |                            |
+    |                   |                            |
+[Supabase Auth]       [Supabase DB]               [Stripe API]
+    |                   |                            |
+[Mailgun SMTP] <---- [Supabase Auth]              [OpenAI API]
+    |                   |                            |
+[Legal Documents]    [Cookie Consent]             [Other External Services]
+
+
+
+Flujo Principal:
+
+El usuario interactúa con el frontend (páginas de Next.js).
+El frontend envía solicitudes al backend (rutas de API de Next.js).
+El backend se conecta a servicios externos según la funcionalidad:
+Supabase Auth para autenticación, que a su vez usa Mailgun para enviar correos electrónicos (ej. confirmación de registro, recuperación de contraseñas).
+Supabase DB para gestionar datos estructurados (usuarios, documentos legales).
+Stripe para procesamiento de pagos.
+OpenAI para funcionalidades de inteligencia artificial.
+Las respuestas regresan al frontend para su visualización.
+Componentes y Explicación
+Frontend (Next.js Pages)
+Descripción:
+
+Interfaz de usuario construida con React en Next.js, estilizada con Shadcn y TailwindCSS. Incluye páginas como:
+
+/login, /register, /forgot-password: Autenticación del usuario.
+/dashboard: Panel principal para usuarios autenticados.
+/terms, /privacy, /cookies: Documentos legales estáticos.
+/settings: Configuración de idioma y tema.
+Interacciones:
+
+Envía solicitudes HTTP a las rutas de API para autenticación, pagos y funcionalidades de IA.
+Renderiza componentes dinámicos según el estado del usuario (autenticado o no) y sus preferencias.
+Justificación:
+
+Next.js ofrece Server-Side Rendering (SSR) y Client-Side Rendering (CSR), optimizando rendimiento y SEO, lo que mejora la experiencia del usuario.
+
+Backend (Next.js API Routes)
+Descripción:
+
+Lógica del servidor implementada en /pages/api/:
+
+/api/auth/[...supabase].ts: Maneja autenticación con Supabase.
+/api/payments.ts: Procesa pagos con Stripe.
+/api/openai.ts: Integra funcionalidades de IA con OpenAI.
+/api/legal.ts: Gestiona documentos legales.
+Interacciones:
+
+Recibe solicitudes del frontend, procesa la lógica y se conecta a servicios externos (Supabase, Stripe, OpenAI).
+Justificación:
+
+Las rutas de API de Next.js permiten un desarrollo full-stack eficiente al unificar frontend y backend en un solo proyecto.
+
+Supabase
+Descripción:
+
+Plataforma para autenticación y base de datos:
+
+Supabase Auth: Registro, inicio de sesión y recuperación de contraseñas, con correos enviados a través de Mailgun.
+Supabase DB: Almacenamiento de datos de usuarios y documentos legales.
+Interacciones:
+
+El backend consulta Supabase para autenticar usuarios y gestionar datos.
+Supabase Auth se conecta a Mailgun vía SMTP para enviar correos electrónicos de autenticación.
+Justificación:
+
+Supabase es escalable y fácil de integrar, mientras que Mailgun optimiza la entregabilidad y personalización de los correos.
+
+Mailgun
+Descripción:
+
+Servicio de envío de correos electrónicos configurado como proveedor SMTP personalizado en Supabase para gestionar correos de autenticación.
+
+Interacciones:
+
+Supabase Auth utiliza Mailgun para enviar correos de confirmación, recuperación de contraseñas, etc., usando un dominio personalizado.
+Justificación:
+
+Mailgun mejora la confiabilidad y profesionalidad del boilerplate al usar un dominio propio, superando las limitaciones del servicio interno de Supabase (límite de envíos y dominio genérico).
+
+Comparación:
+
+El servicio interno de Supabase es adecuado para pruebas, pero Mailgun es preferible para producción por su escalabilidad y configuraciones avanzadas (SPF, DKIM).
+
+Stripe
+Descripción:
+
+Plataforma de pagos para transacciones y suscripciones.
+
+Interacciones:
+
+El backend envía solicitudes a Stripe para crear sesiones de pago.
+Los webhooks de Stripe actualizan el estado de los pagos en la base de datos.
+Justificación:
+
+Stripe es seguro y confiable, ideal para un boilerplate con necesidades de monetización.
+
+OpenAI
+Descripción:
+
+API para funcionalidades de inteligencia artificial.
+
+Interacciones:
+
+El backend envía prompts a OpenAI y procesa las respuestas para generar contenido dinámico.
+Justificación:
+
+OpenAI ofrece capacidades avanzadas de IA con una integración sencilla, ideal para funcionalidades modernas.
+
+Documentos Legales
+Descripción:
+
+Páginas estáticas para Términos y Condiciones, Privacidad y Cookies.
+
+Interacciones:
+
+Renderizadas desde archivos Markdown o componentes React, accesibles desde el footer o durante el registro.
+Justificación:
+
+Facilita el cumplimiento legal y permite personalización según las necesidades del proyecto.
+
+Banner de Consentimiento de Cookies
+Descripción:
+
+Implementado con react-cookie-consent para gestionar el consentimiento del usuario.
+
+Interacciones:
+
+Aparece en la primera visita, permitiendo aceptar o rechazar cookies no esenciales.
+Justificación:
+
+Cumple con regulaciones como GDPR y mejora la transparencia con los usuarios.
+
+Interacciones Clave
+Autenticación con Mailgun:
+El usuario registra una cuenta → Supabase Auth envía un correo de confirmación a través de Mailgun.
+El usuario solicita recuperar contraseña → Supabase Auth envía un enlace de recuperación vía Mailgun.
+Pagos:
+El usuario realiza un pago → API route procesa la transacción con Stripe → Webhook actualiza el estado.
+IA:
+El usuario usa una funcionalidad de IA → API route consulta OpenAI → Respuesta renderizada en el frontend.
+Documentos Legales:
+El usuario accede a /terms → Se renderiza el documento correspondiente.
+Escalabilidad y Consideraciones
+Frontend/Backend:
+Next.js en Vercel escala automáticamente con el tráfico.
+Supabase:
+Escalable con réplicas y sharding para manejar mayor volumen de datos.
+Mailgun:
+Escalable según el plan contratado, con alta capacidad de envío.
+Stripe/OpenAI:
+Servicios gestionados que se adaptan a la demanda sin intervención manual.
+Optimización:
+Uso de caching y lazy loading para mejorar el rendimiento en el frontend.

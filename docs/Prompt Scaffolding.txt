@@ -1,0 +1,33 @@
+Prompt Scaffolding
+
+Necesito generar el scaffold de un proyecto llamado NextPlate, un boilerplate basado en Next.js con las siguientes características:
+
+Framework: Next.js (versión más reciente) con TypeScript.
+Dependencias:
+@supabase/supabase-js para autenticación y base de datos.
+@shadcn/ui para componentes UI pre-estilizados.
+stripe para procesamiento de pagos.
+openai para integraciones con inteligencia artificial.
+next-themes para soporte de temas claro y oscuro.
+next-intl para internacionalización (soporte para español e inglés).
+react-cookie-consent para un banner de cookies.
+Variables de Entorno:
+Claves para Supabase: NEXT_PUBLIC_SUPABASE_URL y NEXT_PUBLIC_SUPABASE_ANON_KEY.
+Claves para Stripe: STRIPE_SECRET_KEY y NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY.
+Clave API de OpenAI: OPENAI_API_KEY.
+Credenciales SMTP de Mailgun: MAILGUN_SMTP_HOST, MAILGUN_SMTP_PORT, MAILGUN_SMTP_USER, MAILGUN_SMTP_PASSWORD.
+Estructura de Carpetas:
+/app/api: Rutas API para autenticación, pagos e integraciones de IA.
+/app/components: Componentes reutilizables (botones, formularios, etc.).
+/app/locales: Archivos JSON para traducciones (español e inglés).
+/app/pages: Páginas como /login, /dashboard, /terms, etc.
+/lib: Utilidades como la conexión a Supabase o funciones helper.
+Configuración Inicial:
+Configurar TailwindCSS y añadir soporte para Shadcn.
+Crear un archivo .env.local con placeholders para todas las variables de entorno.
+Configurar next-themes para temas y next-intl para internacionalización.
+Implementar un layout básico con un banner de cookies usando react-cookie-consent.
+Integración con Supabase y Mailgun:
+Configurar Supabase Auth y vincularlo con Mailgun como proveedor SMTP para correos de autenticación.
+Incluir un archivo o pasos básicos para probar la integración (por ejemplo, una función para enviar un correo de prueba).
+Por favor, genera el scaffold con estos requerimientos, asegurándote de que el proyecto esté listo para personalización y despliegue inmediato.

@@ -1,0 +1,65 @@
+Documento 4: Historias de Usuario
+Las siguientes historias representan las necesidades principales de los desarrolladores que utilizarán NextPlate para construir sus aplicaciones web. Se enfocan en las funcionalidades clave del boilerplate, como autenticación, interfaz de usuario, pagos, inteligencia artificial y cumplimiento legal. Cada historia incluye una descripción, criterios de éxito y, cuando es necesario, notas adicionales para clarificar detalles técnicos.
+
+HU1: Configurar Autenticación Rápidamente
+Como desarrollador, quiero configurar un sistema de autenticación completo en minutos para que mis usuarios puedan registrarse, iniciar sesión y gestionar sus cuentas de forma segura.
+
+Criterios de Éxito:
+El boilerplate incluye autenticación con email/contraseña y opciones sociales (Google, GitHub).
+Los flujos de recuperación de contraseña y verificación de email están preconfigurados.
+La autenticación se integra con Supabase y es fácilmente personalizable.
+Notas: La autenticación debe ser segura por defecto, con protección contra ataques comunes (ej. CSRF, XSS).
+HU2: Implementar una UI Moderna y Adaptable
+Como desarrollador, quiero una interfaz de usuario preconstruida y responsiva para que mi aplicación luzca profesional en cualquier dispositivo sin tener que diseñarla desde cero.
+
+Criterios de Éxito:
+La UI es 100% responsiva y accesible (WCAG 2.1).
+Soporta temas claro y oscuro con next-themes.
+Los componentes de Shadcn son personalizables y reutilizables.
+Notas: La UI debe ser modular para facilitar la adición o eliminación de componentes según el proyecto.
+HU3: Soporte Multilingüe desde el Inicio
+Como desarrollador, quiero que mi aplicación soporte múltiples idiomas desde el principio para llegar a una audiencia global sin refactorización futura.
+
+Criterios de Éxito:
+El boilerplate incluye soporte para español e inglés con next-intl.
+Los textos de la UI y documentos legales están internacionalizados.
+Es fácil añadir nuevos idiomas editando archivos de traducción.
+Notas: La internacionalización debe cubrir tanto la UI como los documentos legales.
+HU4: Integrar Pagos con Stripe Sin Esfuerzo
+Como desarrollador, quiero procesar pagos y suscripciones fácilmente para monetizar mi aplicación sin complicaciones técnicas.
+
+Criterios de Éxito:
+Stripe está preconfigurado para pagos únicos y suscripciones.
+Los webhooks de Stripe están integrados para manejar eventos como pagos exitosos o fallidos.
+Hay un panel básico para visualizar transacciones de ejemplo.
+Notas: La integración debe ser segura y cumplir con PCI-DSS.
+HU5: Añadir Funcionalidades de IA con OpenAI
+Como desarrollador, quiero un ejemplo funcional de integración con OpenAI para poder extenderlo según las necesidades de mi proyecto.
+
+Criterios de Éxito:
+El boilerplate incluye un endpoint de API que usa OpenAI para generar texto o respuestas.
+La documentación explica cómo personalizar o reemplazar la integración de OpenAI.
+Notas: El ejemplo debe ser simple pero extensible, como un chatbot o generador de contenido.
+HU6: Personalizar Documentos Legales Fácilmente
+Como desarrollador, quiero editar los documentos legales (Términos, Privacidad, Cookies) rápidamente para adaptarlos a los requisitos legales de mi proyecto.
+
+Criterios de Éxito:
+Los documentos están disponibles en español e inglés.
+Se pueden editar mediante archivos Markdown o componentes React.
+Los usuarios deben aceptar los términos durante el registro.
+Notas: Los documentos deben ser accesibles desde el footer y durante el flujo de autenticación.
+HU7: Implementar un Banner de Consentimiento de Cookies
+Como desarrollador, quiero un banner de cookies preconstruido para cumplir con regulaciones como GDPR sin tener que configurarlo manualmente.
+
+Criterios de Éxito:
+El banner aparece al ingresar por primera vez y permite aceptar/rechazar cookies no esenciales.
+La configuración es gestionada por react-cookie-consent.
+El estado de consentimiento se almacena correctamente.
+Notas: El banner debe ser traducible y personalizable en estilo.
+Detalles Adicionales
+Prioridad: Todas las historias son esenciales para el MVP, pero HU1 (autenticación), HU2 (UI), HU4 (pagos) y HU6 (documentos legales) son críticas para la funcionalidad básica.
+Criterios de Aceptación (Ejemplo para HU1):
+El usuario puede registrarse con email/contraseña o Google/GitHub.
+Recibe un email de verificación y puede recuperar su contraseña.
+La autenticación protege las rutas privadas correctamente.
+Enfoque: Estas historias reflejan las necesidades de un desarrollador que busca un boilerplate completo, con énfasis en la rapidez de configuración y el cumplimiento legal.

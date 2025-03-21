@@ -1,0 +1,91 @@
+Guía de Configuración de Mailgun en Supabase
+Este documento proporciona instrucciones detalladas para configurar Mailgun como proveedor SMTP en Supabase, permitiendo el envío de correos electrónicos de autenticación (como confirmaciones de registro o recuperación de contraseña) con un dominio personalizado. Esta integración es clave para garantizar una experiencia profesional y confiable en el boilerplate NextPlate.
+
+Requisitos Previos
+Antes de comenzar, asegúrate de tener lo siguiente:
+
+Una cuenta activa en Mailgun.
+Un proyecto creado en Supabase.
+Acceso al panel de administración de tu dominio (para verificar registros DNS).
+Las claves de API y credenciales SMTP de Mailgun.
+Paso 1: Configurar Mailgun
+Objetivo: Preparar Mailgun para enviar correos desde tu dominio.
+
+Acciones:
+
+Regístrate en Mailgun:
+Crea una cuenta en Mailgun si aún no la tienes.
+Inicia sesión en el dashboard de Mailgun.
+Añadir y verificar un dominio:
+Ve a "Sending" > "Domains" y haz clic en "Add New Domain".
+Ingresa tu dominio (ej. mail.tudominio.com) y selecciona la región (EE.UU. o UE).
+Mailgun te proporcionará registros DNS (TXT, CNAME, MX) para verificar el dominio.
+Configurar DNS:
+Accede al panel de administración de tu proveedor de dominio (ej. GoDaddy, Namecheap).
+Añade los registros DNS proporcionados por Mailgun.
+Espera la verificación (puede tardar hasta 24 horas, pero suele ser más rápido).
+Obtener credenciales SMTP:
+Una vez verificado el dominio, ve a "Sending" > "Domains" y selecciona tu dominio.
+Haz clic en "SMTP Credentials" y anota:
+Host: smtp.mailgun.org
+Puerto: 587 (recomendado, TLS).
+Usuario: Algo como postmaster@mail.tudominio.com.
+Contraseña: Generada por Mailgun (guárdala de forma segura). Resultado: Mailgun está configurado y listo para enviar correos.
+Paso 2: Configurar Supabase con Mailgun
+Objetivo: Conectar Supabase a Mailgun para usar sus credenciales SMTP.
+
+Acciones:
+
+Accede al dashboard de Supabase:
+Inicia sesión en Supabase y selecciona tu proyecto.
+Ir a la sección de autenticación:
+Navega a "Authentication" > "Providers" > "Email".
+Habilitar Custom SMTP:
+Desactiva la opción "Use Supabase SMTP" (si está activa).
+Activa "Use a custom SMTP server".
+Ingresar las credenciales de Mailgun:
+Completa los campos con la información obtenida de Mailgun:
+SMTP Host: smtp.mailgun.org
+SMTP Port: 587
+SMTP User: El usuario SMTP de Mailgun (ej. postmaster@mail.tudominio.com).
+SMTP Password: La contraseña SMTP de Mailgun.
+From Email: Una dirección como no-reply@tudominio.com (debe coincidir con el dominio verificado).
+Guardar los cambios:
+Haz clic en "Save" para aplicar la configuración. Resultado: Supabase ahora usará Mailgun como proveedor SMTP.
+Paso 3: Probar la Configuración
+Objetivo: Verificar que los correos se envían correctamente.
+
+Acciones:
+
+Enviar un correo de prueba desde Supabase:
+En el dashboard de Supabase, ve a "Authentication" > "Users".
+Selecciona un usuario y usa la opción "Send Reset Password Email".
+Revisar el correo:
+Verifica que el correo llegue a la bandeja de entrada (o spam, si no está bien configurado el dominio).
+Consultar logs en Mailgun:
+En el dashboard de Mailgun, ve a "Sending" > "Logs" para confirmar que el correo fue enviado exitosamente. Resultado: Confirmación de que los correos de autenticación funcionan.
+Paso 4: Personalizar los Correos (Opcional)
+Objetivo: Ajustar el contenido y diseño de los correos enviados.
+
+Acciones:
+
+Editar plantillas en Supabase:
+En "Authentication" > "Email Templates", personaliza los mensajes para:
+Confirmación de registro.
+Recuperación de contraseña.
+Correo de bienvenida.
+Usa variables como {{ .Token }} o {{ .Email }} según sea necesario.
+Pruebas adicionales:
+Envía correos de prueba para cada plantilla modificada. Resultado: Correos personalizados con la marca de tu proyecto.
+Solución de Problemas
+Correos no llegan:
+Verifica los registros DNS en Mailgun.
+Revisa la bandeja de spam del destinatario.
+Confirma que las credenciales SMTP sean correctas en Supabase.
+Errores en Supabase:
+Asegúrate de que el puerto 587 esté habilitado (TLS).
+Consulta los logs de Supabase en "Reports" > "API" para detalles.
+Notas Finales
+Seguridad: Almacena las credenciales SMTP en el archivo .env.local del proyecto y no las compartas públicamente.
+Escalabilidad: Mailgun ofrece planes gratuitos (hasta 625 correos/mes) y pagos según tus necesidades.
+Tiempo Estimado: 1-2 horas, incluyendo verificación de DNS.

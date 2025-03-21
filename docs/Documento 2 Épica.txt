@@ -1,0 +1,55 @@
+Documento 2: Épica
+Épica Principal del Proyecto
+"Crear NextPlate: un boilerplate full-stack basado en Next.js que combine autenticación robusta, una interfaz de usuario moderna, pagos integrados, capacidades de inteligencia artificial y cumplimiento legal, para que los desarrolladores puedan lanzar aplicaciones web sofisticadas en tiempo récord."
+
+Descripción General
+NextPlate es un boilerplate diseñado para acelerar el desarrollo de aplicaciones web modernas, proporcionando una base preconfigurada, modular y lista para usar. Este proyecto busca eliminar las tareas repetitivas y complejas del desarrollo inicial, como la configuración de autenticación, la integración de pagos o la redacción de documentos legales, permitiendo a los desarrolladores enfocarse en la creación de valor único para sus proyectos. Las funcionalidades principales incluyen:
+
+Autenticación segura con Supabase, soportando flujos completos de registro, inicio de sesión y recuperación de cuentas.
+Interfaz de usuario (UI) elegante y adaptable, construida con componentes de Shadcn y soporte para múltiples temas.
+Procesamiento de pagos mediante Stripe, con capacidad para pagos únicos y suscripciones.
+Capacidades de inteligencia artificial, demostradas con ejemplos prácticos usando la API de OpenAI.
+Soporte multilingüe para facilitar la internacionalización desde el primer día.
+Cumplimiento legal integrado, con documentos personalizables y un banner de consentimiento de cookies.
+El resultado es una solución que no solo ahorra tiempo, sino que también asegura que las aplicaciones construidas con NextPlate sean seguras, escalables y conformes a las normativas desde su lanzamiento.
+
+Características del MVP (Mínimo Producto Viable)
+El MVP de NextPlate ofrece una versión funcional y optimizada con las siguientes características esenciales:
+
+Autenticación con Supabase:
+Registro e inicio de sesión con email y contraseña.
+Flujos de recuperación de contraseña y verificación de email.
+Opción de autenticación social (Google, GitHub) preconfigurada como extensible.
+Interfaz de Usuario Moderna:
+Componentes reutilizables de Shadcn, optimizados para accesibilidad (WCAG 2.1).
+Temas claro y oscuro gestionados con next-themes.
+Diseño responsivo compatible con dispositivos móviles, tablets y escritorios.
+Soporte Multilingüe:
+Internacionalización con next-intl, incluyendo español e inglés por defecto.
+Estructura modular para añadir nuevos idiomas sin refactoring.
+Pagos con Stripe:
+Configuración para procesar pagos únicos y suscripciones recurrentes.
+Webhooks preintegrados para manejar eventos como pagos exitosos o fallidos.
+Panel de control básico para visualizar transacciones (como ejemplo).
+Funcionalidad de Inteligencia Artificial:
+Endpoint de API funcional que utiliza OpenAI para generar contenido dinámico (ejemplo: respuestas automáticas o resúmenes de texto).
+Documentación clara para personalizar o reemplazar con otras APIs de IA.
+Cumplimiento Legal:
+Documentos editables en Markdown o React para:
+Términos y Condiciones.
+Declaración de Privacidad.
+Aviso de Uso de Cookies.
+Enlaces accesibles en el footer y durante el registro (aceptación obligatoria de términos).
+Banner de Consentimiento de Cookies:
+Implementado con react-cookie-consent, con opciones para aceptar/rechazar cookies no esenciales.
+Cumple con regulaciones como GDPR y CCPA.
+Objetivo del MVP
+El MVP de NextPlate busca ofrecer una experiencia "plug-and-play" que permita a los desarrolladores clonar el repositorio, realizar configuraciones mínimas (como claves de API) y tener una aplicación funcional en horas, no días. Cada característica está diseñada para trabajar en armonía, con una arquitectura limpia que facilite la personalización y la escalabilidad.
+
+Beneficios Clave
+Ahorro de Tiempo: Configuraciones que normalmente toman semanas (autenticación, pagos, legal) están listas desde el inicio.
+Base Profesional: UI moderna y cumplimiento legal integrado dan a los proyectos un acabado pulido desde el primer día.
+Flexibilidad: Los componentes modulares permiten a los desarrolladores adaptar NextPlate a sus necesidades específicas.
+Preparado para el Futuro: La inclusión de IA y multilingüismo abre puertas a proyectos innovadores y globales.
+Justificación del Enfoque
+Este diseño prioriza las necesidades reales de los desarrolladores modernos: rapidez, calidad y cumplimiento. A diferencia de otros boilerplates, NextPlate no solo ofrece herramientas técnicas, sino también soluciones legales y de usabilidad que suelen pasarse por alto. La simplicidad del MVP asegura que sea accesible para principiantes, mientras que su modularidad lo hace útil para expertos que deseen construir aplicaciones más complejas.
