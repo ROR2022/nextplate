@@ -2,7 +2,7 @@ import { getTranslations } from "next-intl/server";
 import DocContent from "../../components/doc-content";
 import DocNavigation from "../../components/doc-navigation";
 import { Metadata } from "next";
-import { ReactNode } from "react";
+
 
 export async function generateMetadata({
   params,
@@ -23,7 +23,6 @@ export default async function ApiAuthPage({
   params,
 }: {
   params: { locale: string };
-  children?: ReactNode;
 }) {
   // Extraer el locale de params después de que Next.js lo haya resuelto completamente
   const { locale } = await Promise.resolve(params);
