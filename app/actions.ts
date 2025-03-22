@@ -147,7 +147,7 @@ export const signInWithGoogleAction = async () => {
   
   const redirectTo = `${origin}/${locale}/auth/callback`;
 
-  console.log('Redirect to:', redirectTo);
+  console.warn('Redirect to:', redirectTo);
   
   const { data, error } = await supabase.auth.signInWithOAuth({
     provider: "google",
@@ -166,8 +166,8 @@ export const signInWithGoogleAction = async () => {
   }
   
   // Redirigir al usuario a la URL proporcionada por Supabase
-  console.log('Redirecting to data.url:', data.url);
-  return redirect(`/${locale}/dashboard`);
+  console.warn('Redirecting to data.url:', data.url);
+  return redirect(data.url);
 };
 
 export const signInWithGithubAction = async () => {
