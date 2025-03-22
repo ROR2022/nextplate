@@ -4,7 +4,6 @@ import { SubmitButton } from "@/components/submit-button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import Link from "next/link";
-import { SmtpMessage } from "@/app/(auth-pages)/smtp-message";
 import { getTranslations, getLocale } from "next-intl/server";
 import { GoogleButton } from "@/components/auth/google-button";
 import { GithubButton } from "@/components/auth/github-button";
@@ -71,9 +70,7 @@ export default async function Signup(props: {
           <FormMessage message={searchParams} />
         </div>
       </form>
-      <div className="mt-4">
-        <SmtpMessage />
-      </div>
+      
     </>
   );
 }
