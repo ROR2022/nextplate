@@ -3,7 +3,7 @@ import DocContent from "../../components/doc-content";
 import DocNavigation from "../../components/doc-navigation";
 import { Metadata } from "next";
 
-type PageProps = {
+export type PageProps = {
   params: Promise<{ locale: string }>;
 };
 
@@ -23,7 +23,7 @@ export async function generateMetadata({
 export default async function ApiAuthPage({
   params,
 }: PageProps) {
-  // Extraer el locale de params después de que Next.js lo haya resuelto completamente
+  // Extraer el locale de params
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "docs" });
 
