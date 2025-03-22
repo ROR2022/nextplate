@@ -2,13 +2,12 @@ import { getTranslations } from "next-intl/server";
 import DocContent from "../components/doc-content";
 import DocNavigation from "../components/doc-navigation";
 import { Metadata } from "next";
+import { type PageProps } from "../api/auth/page";
 
 export async function generateMetadata({
   params,
-}: {
-  params: { locale: string };
-}): Promise<Metadata> {
-  // Extraer el locale de params después de que Next.js lo haya resuelto completamente
+}: PageProps): Promise<Metadata> {
+  // Extraer el locale de params
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "docs" });
   
@@ -20,10 +19,8 @@ export async function generateMetadata({
 
 export default async function ArchitecturePage({
   params,
-}: {
-  params: { locale: string };
-}) {
-  // Extraer el locale de params después de que Next.js lo haya resuelto completamente
+}: PageProps) {
+  // Extraer el locale de params
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "docs" });
 

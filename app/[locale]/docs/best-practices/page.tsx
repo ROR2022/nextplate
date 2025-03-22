@@ -2,12 +2,11 @@ import { getTranslations } from "next-intl/server";
 import DocContent from "../components/doc-content";
 import DocNavigation from "../components/doc-navigation";
 import { Metadata } from "next";
+import { type PageProps } from "../api/auth/page";
 
 export async function generateMetadata({
   params,
-}: {
-  params: { locale: string };
-}): Promise<Metadata> {
+}: PageProps): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "docs" });
   
@@ -19,9 +18,7 @@ export async function generateMetadata({
 
 export default async function BestPracticesPage({
   params,
-}: {
-  params: { locale: string };
-}) {
+}: PageProps) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "docs" });
 

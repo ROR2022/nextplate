@@ -2,15 +2,13 @@ import { getTranslations } from "next-intl/server";
 import DocContent from "../../components/doc-content";
 import DocNavigation from "../../components/doc-navigation";
 import { Metadata } from "next";
-import { ReactNode } from "react";
+import { type PageProps } from "../auth/page";
 
 export async function generateMetadata({
   params,
-}: {
-  params: { locale: string };
-}): Promise<Metadata> {
-  // Extraer el locale de params después de que Next.js lo haya resuelto completamente
-  const { locale } = await Promise.resolve(params);
+}: PageProps): Promise<Metadata> {
+  // Extraer el locale de params
+  const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "docs" });
   
   return {
@@ -21,12 +19,9 @@ export async function generateMetadata({
 
 export default async function ApiUsersPage({
   params,
-}: {
-  params: { locale: string };
-  children?: ReactNode;
-}) {
-  // Extraer el locale de params después de que Next.js lo haya resuelto completamente
-  const { locale } = await Promise.resolve(params);
+}: PageProps) {
+  // Extraer el locale de params
+  const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "docs" });
 
   return (
