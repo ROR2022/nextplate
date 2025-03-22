@@ -9,7 +9,7 @@ export async function generateMetadata({
   params: { locale: string };
 }): Promise<Metadata> {
   // Extraer el locale de params después de que Next.js lo haya resuelto completamente
-  const { locale } = await params;
+  const { locale } = await Promise.resolve(params);
   const t = await getTranslations({ locale, namespace: "docs" });
   
   return {
@@ -24,7 +24,7 @@ export default async function ApiWebhooksPage({
   params: { locale: string };
 }) {
   // Extraer el locale de params después de que Next.js lo haya resuelto completamente
-  const { locale } = await params;
+  const { locale } = await Promise.resolve(params);
   const t = await getTranslations({ locale, namespace: "docs" });
 
   return (
