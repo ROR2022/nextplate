@@ -3,14 +3,15 @@ import DocContent from "../../components/doc-content";
 import DocNavigation from "../../components/doc-navigation";
 import { Metadata } from "next";
 
+type PageProps = {
+  params: Promise<{ locale: string }>;
+};
 
 export async function generateMetadata({
   params,
-}: {
-  params: { locale: string };
-}): Promise<Metadata> {
+}: PageProps): Promise<Metadata> {
   // Extraer el locale de params después de que Next.js lo haya resuelto completamente
-  const { locale } = await Promise.resolve(params);
+  const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "docs" });
   
   return {
@@ -21,11 +22,9 @@ export async function generateMetadata({
 
 export default async function ApiAuthPage({
   params,
-}: {
-  params: { locale: string };
-}) {
+}: PageProps) {
   // Extraer el locale de params después de que Next.js lo haya resuelto completamente
-  const { locale } = await Promise.resolve(params);
+  const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "docs" });
 
   return (
