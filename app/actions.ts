@@ -5,6 +5,7 @@ import { createClient } from "@/utils/supabase/server";
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { getLocale } from "next-intl/server";
+import { console } from "inspector";
 
 export const signUpAction = async (formData: FormData) => {
   const email = formData.get("email")?.toString();
@@ -145,6 +146,8 @@ export const signInWithGoogleAction = async () => {
   const locale = await getLocale();
   
   const redirectTo = `${origin}/${locale}/auth/callback`;
+
+  console.log('Redirect to:', redirectTo);
   
   const { data, error } = await supabase.auth.signInWithOAuth({
     provider: "google",
@@ -163,6 +166,7 @@ export const signInWithGoogleAction = async () => {
   }
   
   // Redirigir al usuario a la URL proporcionada por Supabase
+  console.log('Redirecting to data.url:', data.url);
   return redirect(data.url);
 };
 
