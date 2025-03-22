@@ -167,7 +167,7 @@ export const signInWithGoogleAction = async () => {
   
   // Redirigir al usuario a la URL proporcionada por Supabase
   console.log('Redirecting to data.url:', data.url);
-  return redirect(data.url);
+  return redirect(`/${locale}/dashboard`);
 };
 
 export const signInWithGithubAction = async () => {
