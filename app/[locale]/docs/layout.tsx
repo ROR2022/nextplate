@@ -3,15 +3,15 @@ import DocSidebar from "./components/doc-sidebar";
 
 interface DocsLayoutProps {
   children: ReactNode;
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }
 
-export default function DocsLayout({
+export default async function DocsLayout({
   children,
   params,
 }: DocsLayoutProps) {
   // Extraer el locale de params después de que Next.js lo haya resuelto completamente
-  const { locale } = params;
+  const { locale } = await params;
 
   return (
     <div className="container py-10">
