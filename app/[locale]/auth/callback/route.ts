@@ -9,15 +9,18 @@ export async function GET(request: Request) {
   const requestUrl = new URL(request.url);
   const code = requestUrl.searchParams.get("code");
   const origin = requestUrl.origin;
+  console.warn('origin...', origin);
   const redirectTo = requestUrl.searchParams.get("redirect_to")?.toString();
   const locale = await getLocale();
 
   if (code) {
     const supabase = await createClient();
+    console.warn('Exchanging code for session...');
     await supabase.auth.exchangeCodeForSession(code);
   }
 
   if (redirectTo) {
+    console.warn('Redirecting to:', redirectTo);
     return NextResponse.redirect(`${origin}/${locale}${redirectTo}`);
   }
 
