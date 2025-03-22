@@ -6,13 +6,12 @@ interface DocsLayoutProps {
   params: { locale: string };
 }
 
-export default async function DocsLayout({
+export default function DocsLayout({
   children,
   params,
 }: DocsLayoutProps) {
-  // Extraer el locale de params después de que Next.js lo haya resuelto completamente
-  const { locale } = await params;
-  // Removida la línea que asignaba t pero no la usaba
+  // Extraer el locale directamente de params
+  const { locale } = params;
 
   return (
     <div className="container py-10">
