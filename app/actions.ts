@@ -5,7 +5,6 @@ import { createClient } from "@/utils/supabase/server";
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { getLocale } from "next-intl/server";
-import { console } from "inspector";
 
 export const signUpAction = async (formData: FormData) => {
   const email = formData.get("email")?.toString();
