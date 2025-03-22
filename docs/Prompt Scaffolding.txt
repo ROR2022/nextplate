@@ -2,7 +2,7 @@ Prompt Scaffolding
 
 Necesito generar el scaffold de un proyecto llamado NextPlate, un boilerplate basado en Next.js con las siguientes características:
 
-Framework: Next.js (versión más reciente) con TypeScript.
+Framework: Next.js 15.1.6 con TypeScript.
 Dependencias:
 @supabase/supabase-js para autenticación y base de datos.
 @shadcn/ui para componentes UI pre-estilizados.

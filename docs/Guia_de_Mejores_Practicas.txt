@@ -1,0 +1,279 @@
+
+---
+
+# Guía de Mejores Prácticas de Desarrollo para NextPlate
+
+Esta guía reúne las mejores prácticas de desarrollo para asegurar que tu boilerplate **NextPlate** sea limpio, mantenible y escalable. Está dividida en cuatro secciones: Principios SOLID, Clean Code, Patrones de Diseño y Aplicación Práctica en NextPlate.
+
+## 1. Principios SOLID
+
+Los principios SOLID son fundamentales para escribir código robusto y fácil de mantener. A continuación, se explican los cinco principios con ejemplos aplicados a tu stack:
+
+### 1.1 Single Responsibility Principle (Principio de Responsabilidad Única)
+**Definición**: Cada clase, función o módulo debe tener una sola razón para cambiar.  
+**Ejemplo**: Un componente de Next.js que muestra datos de usuario no debería también manejar la lógica de autenticación.  
+```tsx
+// Mal: Un solo componente hace todo
+function UserProfile({ userId }) {
+  const user = await fetchUserFromSupabase(userId); // Lógica de acceso a datos
+  return <div>{user.name}</div>;
+}
+
+// Bien: Separar responsabilidades
+function UserProfile({ user }) {
+  return <div>{user.name}</div>;
+}
+
+async function fetchUserFromSupabase(userId) {
+  const { data } = await supabase.from("users").select("*").eq("id", userId);
+  return data[0];
+}
+```
+
+### 1.2 Open/Closed Principle (Principio Abierto/Cerrado)
+**Definición**: Las entidades deben estar abiertas a extensión pero cerradas a modificación.  
+**Ejemplo**: Extender la lógica de pagos con Stripe sin modificar el código original.  
+```tsx
+// Clase base
+class PaymentProcessor {
+  process(amount) {
+    throw new Error("Método no implementado");
+  }
+}
+
+// Extensión para Stripe
+class StripePaymentProcessor extends PaymentProcessor {
+  process(amount) {
+    return stripe.charges.create({ amount, currency: "usd" });
+  }
+}
+```
+
+### 1.3 Liskov Substitution Principle (Principio de Sustitución de Liskov)
+**Definición**: Las clases derivadas deben ser sustituibles por sus clases base sin alterar el comportamiento.  
+**Ejemplo**: Un cliente de correo (Mailgun) debe ser intercambiable con otro sin romper la aplicación.  
+```tsx
+interface EmailClient {
+  sendEmail(to: string, subject: string, body: string): Promise<void>;
+}
+
+class MailgunClient implements EmailClient {
+  async sendEmail(to, subject, body) {
+    await mailgun.messages().send({ to, subject, text: body });
+  }
+}
+```
+
+### 1.4 Interface Segregation Principle (Principio de Segregación de Interfaces)
+**Definición**: No obligar a los módulos a depender de interfaces que no usan.  
+**Ejemplo**: Separar interfaces para Supabase según las necesidades.  
+```tsx
+interface AuthClient {
+  signIn(email: string, password: string): Promise<void>;
+}
+
+interface DataClient {
+  fetchData(table: string): Promise<any>;
+}
+
+class SupabaseAuth implements AuthClient {
+  async signIn(email, password) {
+    await supabase.auth.signInWithPassword({ email, password });
+  }
+}
+```
+
+### 1.5 Dependency Inversion Principle (Principio de Inversión de Dependencias)
+**Definición**: Depender de abstracciones, no de implementaciones concretas.  
+**Ejemplo**: Inyectar un servicio de correo en lugar de codificar Mailgun directamente.  
+```tsx
+interface EmailService {
+  send(to: string, message: string): Promise<void>;
+}
+
+class NotificationService {
+  constructor(private emailService: EmailService) {}
+
+  async notifyUser(to: string, message: string) {
+    await this.emailService.send(to, message);
+  }
+}
+
+const mailgunService = new MailgunClient();
+const notifier = new NotificationService(mailgunService);
+```
+
+---
+
+## 2. Clean Code
+
+Escribir código limpio mejora la legibilidad y el mantenimiento. Aquí tienes las prácticas clave con ejemplos:
+
+### 2.1 Nombres Descriptivos
+**Práctica**: Usa nombres que revelen la intención.  
+**Ejemplo**:  
+```tsx
+// Mal
+const x = await fetch("/api/user");
+
+// Bien
+const userData = await fetchUserData("/api/user");
+```
+
+### 2.2 Funciones Pequeñas y con un Solo Propósito
+**Práctica**: Las funciones deben hacer una sola cosa y ser cortas.  
+**Ejemplo**:  
+```tsx
+// Mal
+async function handleRequest(req, res) {
+  const data = await supabase.from("orders").select("*");
+  res.status(200).json(data);
+}
+
+// Bien
+async function getOrders() {
+  return await supabase.from("orders").select("*");
+}
+
+async function handleRequest(req, res) {
+  const orders = await getOrders();
+  res.status(200).json(orders);
+}
+```
+
+### 2.3 Manejo de Errores
+**Práctica**: Gestiona errores explícitamente.  
+**Ejemplo**:  
+```tsx
+async function processPayment(amount) {
+  try {
+    const charge = await stripe.charges.create({ amount, currency: "usd" });
+    return charge;
+  } catch (error) {
+    throw new Error(`Error en el pago: ${error.message}`);
+  }
+}
+```
+
+### 2.4 Comentarios Útiles
+**Práctica**: Comenta el "por qué", no el "qué".  
+**Ejemplo**:  
+```tsx
+// Mal: Redundante
+// Obtiene datos de usuario
+const user = await fetchUser(id);
+
+// Bien: Explica la intención
+// Usamos un caché para evitar consultas repetidas a Supabase
+const user = await cachedFetchUser(id);
+```
+
+---
+
+## 3. Patrones de Diseño
+
+Los patrones de diseño ofrecen soluciones probadas a problemas comunes. Aquí tienes algunos relevantes para NextPlate:
+
+### 3.1 Singleton
+**Definición**: Garantiza una única instancia de un recurso.  
+**Ejemplo**: Conexión a Supabase.  
+```tsx
+class SupabaseSingleton {
+  private static instance: SupabaseClient;
+
+  private constructor() {}
+
+  static getInstance() {
+    if (!SupabaseSingleton.instance) {
+      SupabaseSingleton.instance = createClient(supabaseUrl, supabaseKey);
+    }
+    return SupabaseSingleton.instance;
+  }
+}
+```
+
+### 3.2 Factory
+**Definición**: Centraliza la creación de objetos.  
+**Ejemplo**: Crear clientes de servicios externos.  
+```tsx
+class ServiceFactory {
+  static createPaymentService(type: string) {
+    if (type === "stripe") return new StripePaymentProcessor();
+    throw new Error("Servicio no soportado");
+  }
+}
+
+const paymentService = ServiceFactory.createPaymentService("stripe");
+```
+
+### 3.3 Repository
+**Definición**: Abstrae el acceso a datos.  
+**Ejemplo**: Consultas a Supabase.  
+```tsx
+interface UserRepository {
+  getUser(id: string): Promise<User>;
+}
+
+class SupabaseUserRepository implements UserRepository {
+  async getUser(id: string) {
+    const { data } = await supabase.from("users").select("*").eq("id", id);
+    return data[0];
+  }
+}
+```
+
+---
+
+## 4. Aplicación Práctica en NextPlate
+
+Aquí tienes ejemplos concretos para aplicar estas prácticas en tu boilerplate:
+
+### 4.1 Organización de Rutas API con SOLID
+**Ejemplo**: Ruta API para procesar pagos.  
+```tsx
+// pages/api/payments.ts
+import { StripePaymentProcessor } from "@/services/stripe";
+
+export default async function handler(req, res) {
+  const paymentProcessor = new StripePaymentProcessor();
+  try {
+    const charge = await paymentProcessor.process(req.body.amount);
+    res.status(200).json(charge);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+}
+```
+
+### 4.2 Función Limpia para OpenAI
+**Ejemplo**: Generar texto con OpenAI.  
+```tsx
+async function generateText(prompt: string) {
+  const response = await openai.createCompletion({
+    model: "text-davinci-003",
+    prompt,
+    max_tokens: 100,
+  });
+  return response.data.choices[0].text.trim();
+}
+```
+
+### 4.3 Repository para Supabase
+**Ejemplo**: Acceso a datos de usuarios.  
+```tsx
+class SupabaseUserRepository {
+  async getUserByEmail(email: string) {
+    const { data, error } = await supabase
+      .from("users")
+      .select("*")
+      .eq("email", email);
+    if (error) throw new Error(error.message);
+    return data[0];
+  }
+}
+```
+
+---
+
+Este documento es tu guía de referencia para desarrollar **NextPlate** con las mejores prácticas. 
+

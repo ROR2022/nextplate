@@ -1,0 +1,298 @@
+{
+  "landing": {
+    "hero": {
+      "title": "NextPlate",
+      "subtitle": "Un boilerplate avanzado para desarrolladores full-stack",
+      "description": "Acelera el desarrollo de aplicaciones web modernas con autenticación, pagos, IA y cumplimiento legal preconfigurados.",
+      "cta": "Comenzar",
+      "secondaryCta": "Ver documentación"
+    },
+    "features": {
+      "title": "Características principales",
+      "description": "NextPlate incluye todo lo que necesitas para construir aplicaciones web modernas rápidamente.",
+      "items": [
+        {
+          "title": "Autenticación Segura",
+          "description": "Integración completa con Supabase y Mailgun para una experiencia de autenticación robusta y profesional.",
+          "icon": "lock"
+        },
+        {
+          "title": "Interfaz Moderna",
+          "description": "Componentes UI elegantes y accesibles con Shadcn, listos para personalizar según tus necesidades.",
+          "icon": "palette"
+        },
+        {
+          "title": "Pagos Integrados",
+          "description": "Procesamiento de pagos y suscripciones con Stripe, incluyendo webhooks preconfigurados.",
+          "icon": "creditCard"
+        },
+        {
+          "title": "Inteligencia Artificial",
+          "description": "Ejemplos prácticos de integración con OpenAI para añadir capacidades de IA a tu aplicación.",
+          "icon": "brain"
+        },
+        {
+          "title": "Multilingüe",
+          "description": "Soporte para múltiples idiomas con next-intl, facilitando la expansión global de tu aplicación.",
+          "icon": "globe"
+        },
+        {
+          "title": "Cumplimiento Legal",
+          "description": "Documentos legales personalizables y banner de cookies para cumplir con normativas como GDPR.",
+          "icon": "shield"
+        }
+      ]
+    },
+    "howItWorks": {
+      "title": "Cómo funciona",
+      "description": "Construir con NextPlate es simple y rápido.",
+      "steps": [
+        {
+          "title": "Clona el repositorio",
+          "description": "Comienza con un simple git clone para obtener todo el código base."
+        },
+        {
+          "title": "Configura las variables de entorno",
+          "description": "Conecta tus servicios externos como Supabase, Stripe y OpenAI."
+        },
+        {
+          "title": "Personaliza el contenido",
+          "description": "Adapta la UI y los textos según las necesidades de tu proyecto."
+        },
+        {
+          "title": "¡Listo para producción!",
+          "description": "Despliega tu aplicación y comienza a recibir usuarios."
+        }
+      ]
+    },
+    "testimonials": {
+      "title": "Lo que dicen los desarrolladores",
+      "items": [
+        {
+          "quote": "NextPlate me ahorró semanas de configuración inicial. Pude lanzar mi SaaS en tiempo récord.",
+          "author": "Ana Martínez",
+          "role": "Desarrolladora Full-Stack"
+        },
+        {
+          "quote": "La integración con Supabase y Stripe funcionó a la perfección. Excelente trabajo.",
+          "author": "Carlos Rodríguez",
+          "role": "Fundador de TechStart"
+        },
+        {
+          "quote": "Los documentos legales preconfigurados fueron un salvavidas para cumplir con GDPR.",
+          "author": "Laura Sánchez",
+          "role": "CTO de AppLaunch"
+        }
+      ]
+    },
+    "cta": {
+      "title": "Comienza a construir hoy",
+      "description": "Únete a los desarrolladores que están acelerando sus proyectos con NextPlate.",
+      "buttonText": "Comenzar ahora",
+      "secondaryButtonText": "Ver en GitHub"
+    },
+    "footer": {
+      "copyright": " 2025 NextPlate. Todos los derechos reservados.",
+      "links": [
+        {
+          "text": "Inicio",
+          "url": "/"
+        },
+        {
+          "text": "Características",
+          "url": "/#features"
+        },
+        {
+          "text": "Cómo funciona",
+          "url": "/#how-it-works"
+        },
+        {
+          "text": "Testimonios",
+          "url": "/#testimonials"
+        },
+        {
+          "text": "Términos",
+          "url": "/terms"
+        },
+        {
+          "text": "Privacidad",
+          "url": "/privacy"
+        },
+        {
+          "text": "Cookies",
+          "url": "/cookies"
+        }
+      ]
+    }
+  },
+  "legal": {
+    "terms": {
+      "title": "Términos y Condiciones",
+      "lastUpdated": "21 de marzo de 2025",
+      "introduction": "Bienvenido a NextPlate. Estos Términos y Condiciones rigen el uso de nuestro boilerplate y servicios asociados. Al utilizar NextPlate, aceptas cumplir con estos términos. Por favor, léelos cuidadosamente.",
+      "sections": [
+        {
+          "title": "1. Aceptación de los Términos",
+          "content": [
+            "Al acceder o utilizar NextPlate, aceptas estar legalmente vinculado por estos Términos y Condiciones. Si no estás de acuerdo con alguna parte de estos términos, no podrás utilizar nuestros servicios.",
+            "Nos reservamos el derecho de modificar estos términos en cualquier momento. Las modificaciones entrarán en vigor inmediatamente después de su publicación. Es tu responsabilidad revisar periódicamente estos términos."
+          ]
+        },
+        {
+          "title": "2. Descripción del Servicio",
+          "content": [
+            "NextPlate es un boilerplate avanzado diseñado para desarrolladores full-stack que buscan acelerar la creación de aplicaciones web escalables, modernas y conformes con normativas legales.",
+            "Proporcionamos código base, componentes y configuraciones que puedes utilizar como punto de partida para tus proyectos."
+          ]
+        },
+        {
+          "title": "3. Licencia y Uso",
+          "content": "NextPlate se proporciona bajo la licencia MIT. Puedes utilizar, modificar y distribuir el código para proyectos personales y comerciales, siempre que mantengas el aviso de copyright y la declaración de permisos en todas las copias.",
+          "subsections": [
+            {
+              "title": "3.1 Restricciones",
+              "content": "No puedes utilizar NextPlate para crear aplicaciones que violen leyes aplicables o derechos de terceros. No puedes revender NextPlate como tu propio producto sin modificaciones sustanciales."
+            },
+            {
+              "title": "3.2 Contribuciones",
+              "content": "Si contribuyes al código de NextPlate, aceptas que tus contribuciones estarán bajo la misma licencia que el proyecto original."
+            }
+          ]
+        },
+        {
+          "title": "4. Responsabilidad",
+          "content": [
+            "NextPlate se proporciona 'tal cual', sin garantías de ningún tipo. No somos responsables de cómo utilices el código o de cualquier problema que pueda surgir de su uso.",
+            "Eres responsable de cumplir con todas las leyes y regulaciones aplicables al utilizar NextPlate en tus proyectos."
+          ]
+        },
+        {
+          "title": "5. Propiedad Intelectual",
+          "content": "NextPlate contiene código propietario y de código abierto. Respetamos los derechos de propiedad intelectual y esperamos que nuestros usuarios hagan lo mismo."
+        },
+        {
+          "title": "6. Terminación",
+          "content": "Podemos terminar o suspender tu acceso a NextPlate inmediatamente, sin previo aviso ni responsabilidad, por cualquier motivo, incluyendo, sin limitación, si incumples estos Términos y Condiciones."
+        },
+        {
+          "title": "7. Ley Aplicable",
+          "content": "Estos términos se regirán e interpretarán de acuerdo con las leyes del país en el que operamos, sin tener en cuenta sus conflictos de disposiciones legales."
+        },
+        {
+          "title": "8. Contacto",
+          "content": "Si tienes alguna pregunta sobre estos Términos y Condiciones, por favor contáctanos a través de nuestro sitio web o repositorio de GitHub."
+        }
+      ]
+    },
+    "privacy": {
+      "title": "Política de Privacidad",
+      "lastUpdated": "21 de marzo de 2025",
+      "introduction": "En NextPlate, respetamos tu privacidad y nos comprometemos a proteger tus datos personales. Esta Política de Privacidad explica cómo recopilamos, utilizamos y protegemos tu información cuando utilizas nuestro boilerplate.",
+      "sections": [
+        {
+          "title": "1. Información que Recopilamos",
+          "content": "Dependiendo de cómo utilices NextPlate, podemos recopilar diferentes tipos de información:",
+          "subsections": [
+            {
+              "title": "1.1 Información proporcionada voluntariamente",
+              "content": "Información que nos proporcionas al registrarte, contactarnos o interactuar con nuestros servicios, como nombre, dirección de correo electrónico y detalles de contacto."
+            },
+            {
+              "title": "1.2 Información recopilada automáticamente",
+              "content": "Información técnica como dirección IP, tipo de navegador, proveedor de servicios de Internet, páginas de referencia/salida, sistema operativo, fecha/hora y datos de clickstream."
+            },
+            {
+              "title": "1.3 Cookies y tecnologías similares",
+              "content": "Utilizamos cookies y tecnologías similares para mejorar la experiencia del usuario, analizar tendencias y administrar el sitio. Consulta nuestra Política de Cookies para más información."
+            }
+          ]
+        },
+        {
+          "title": "2. Cómo Utilizamos tu Información",
+          "content": [
+            "Utilizamos la información recopilada para proporcionar, mantener y mejorar nuestros servicios.",
+            "También podemos utilizar tu información para comunicarnos contigo, enviarte actualizaciones técnicas, alertas de seguridad y mensajes de soporte."
+          ]
+        },
+        {
+          "title": "3. Compartir Información",
+          "content": "No vendemos, comerciamos ni transferimos tu información personal a terceros sin tu consentimiento, excepto cuando sea necesario para proporcionar servicios o cumplir con requisitos legales."
+        },
+        {
+          "title": "4. Seguridad de Datos",
+          "content": "Implementamos medidas de seguridad para proteger tu información personal contra acceso, alteración, divulgación o destrucción no autorizados."
+        },
+        {
+          "title": "5. Tus Derechos",
+          "content": [
+            "Dependiendo de tu ubicación, puedes tener ciertos derechos relacionados con tus datos personales, como el derecho a acceder, corregir, eliminar o limitar el procesamiento de tus datos.",
+            "Para ejercer estos derechos, contáctanos a través de los canales proporcionados al final de esta política."
+          ]
+        },
+        {
+          "title": "6. Cambios a esta Política",
+          "content": "Podemos actualizar nuestra Política de Privacidad periódicamente. Te notificaremos cualquier cambio publicando la nueva Política de Privacidad en esta página."
+        },
+        {
+          "title": "7. Contacto",
+          "content": "Si tienes preguntas sobre esta Política de Privacidad, por favor contáctanos a través de nuestro sitio web o repositorio de GitHub."
+        }
+      ]
+    },
+    "cookies": {
+      "title": "Política de Cookies",
+      "lastUpdated": "21 de marzo de 2025",
+      "introduction": "Esta Política de Cookies explica qué son las cookies, cómo las utilizamos y cómo puedes controlarlas cuando utilizas NextPlate. Al utilizar nuestro boilerplate, aceptas el uso de cookies de acuerdo con esta política.",
+      "sections": [
+        {
+          "title": "1. ¿Qué son las Cookies?",
+          "content": [
+            "Las cookies son pequeños archivos de texto que se almacenan en tu dispositivo cuando visitas un sitio web. Se utilizan ampliamente para hacer que los sitios web funcionen de manera más eficiente y proporcionar información a los propietarios del sitio.",
+            "Las cookies pueden ser 'persistentes' o 'de sesión'. Las cookies persistentes permanecen en tu dispositivo después de cerrar el navegador, mientras que las cookies de sesión se eliminan cuando cierras el navegador."
+          ]
+        },
+        {
+          "title": "2. Tipos de Cookies que Utilizamos",
+          "content": "Utilizamos diferentes tipos de cookies por las siguientes razones:",
+          "subsections": [
+            {
+              "title": "2.1 Cookies esenciales",
+              "content": "Necesarias para el funcionamiento básico del sitio. Estas cookies no recopilan información personal."
+            },
+            {
+              "title": "2.2 Cookies de rendimiento",
+              "content": "Recopilan información sobre cómo utilizas nuestro sitio, como qué páginas visitas con más frecuencia. Estos datos nos ayudan a optimizar el sitio."
+            },
+            {
+              "title": "2.3 Cookies de funcionalidad",
+              "content": "Permiten que el sitio recuerde tus elecciones (como tu nombre de usuario o idioma) y proporcione funciones mejoradas y más personales."
+            },
+            {
+              "title": "2.4 Cookies de publicidad y análisis",
+              "content": "Recopilan información sobre tus hábitos de navegación para ofrecerte publicidad relevante y analizar el rendimiento de nuestro sitio."
+            }
+          ]
+        },
+        {
+          "title": "3. Control de Cookies",
+          "content": [
+            "Puedes controlar y gestionar las cookies de varias maneras. La mayoría de los navegadores te permiten eliminar cookies, bloquear la aceptación de cookies o recibir una advertencia antes de que se almacene una cookie.",
+            "Ten en cuenta que eliminar o bloquear cookies puede afectar tu experiencia de usuario y partes de nuestro sitio pueden no funcionar correctamente."
+          ]
+        },
+        {
+          "title": "4. Cookies de Terceros",
+          "content": "Algunos de nuestros servicios utilizan cookies de terceros, como servicios de análisis y redes sociales. No tenemos control sobre estas cookies."
+        },
+        {
+          "title": "5. Cambios a esta Política",
+          "content": "Podemos actualizar nuestra Política de Cookies periódicamente. Te recomendamos revisar esta página regularmente para estar informado sobre cualquier cambio."
+        },
+        {
+          "title": "6. Contacto",
+          "content": "Si tienes preguntas sobre nuestra Política de Cookies, por favor contáctanos a través de nuestro sitio web o repositorio de GitHub."
+        }
+      ]
+    }
+  }
+}

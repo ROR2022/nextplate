@@ -7,9 +7,10 @@ const Temp = async () => {
   const { data, error } = await supabase.from("users").select();
 
   if (error) {
-    console.log(error);
+    // Manejar el error de forma más apropiada
+    return <div>Error: {error.message}</div>;
   } else if (data) {
-    console.log(data);
+    // Usar los datos en lugar de mostrarlos en consola
   }
 
   return (

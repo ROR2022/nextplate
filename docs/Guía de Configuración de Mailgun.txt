@@ -1,5 +1,9 @@
 Guía de Configuración de Mailgun en Supabase
-Este documento proporciona instrucciones detalladas para configurar Mailgun como proveedor SMTP en Supabase, permitiendo el envío de correos electrónicos de autenticación (como confirmaciones de registro o recuperación de contraseña) con un dominio personalizado. Esta integración es clave para garantizar una experiencia profesional y confiable en el boilerplate NextPlate.
+Este documento proporciona instrucciones detalladas para configurar Mailgun 
+como proveedor SMTP en Supabase, permitiendo el envío de correos electrónicos de autenticación 
+(como confirmaciones de registro o recuperación de contraseña) con un dominio personalizado. 
+Esta integración es clave para garantizar una experiencia profesional y 
+confiable en el boilerplate NextPlate.
 
 Requisitos Previos
 Antes de comenzar, asegúrate de tener lo siguiente:

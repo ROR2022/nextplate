@@ -40,16 +40,16 @@ export const updateSession = async (request: NextRequest) => {
     const user = await supabase.auth.getUser();
 
     // protected routes
-    if (request.nextUrl.pathname.startsWith("/protected") && user.error) {
+    if (request.nextUrl.pathname.startsWith("/dashboard") && user.error) {
       return NextResponse.redirect(new URL("/sign-in", request.url));
     }
 
     if (request.nextUrl.pathname === "/" && !user.error) {
-      return NextResponse.redirect(new URL("/protected", request.url));
+      return NextResponse.redirect(new URL("/dashboard", request.url));
     }
 
     return response;
-  } catch (e) {
+  } catch {
     // If you are here, a Supabase client could not be created!
     // This is likely because you have not set up environment variables.
     // Check out http://localhost:3000 for Next Steps.

@@ -1,0 +1,920 @@
+{
+  "landing": {
+    "hero": {
+      "title": "NextPlate",
+      "subtitle": "An advanced boilerplate for full-stack developers",
+      "description": "Accelerate modern web application development with pre-configured authentication, payments, AI, and legal compliance.",
+      "cta": "Get Started",
+      "secondaryCta": "View Documentation"
+    },
+    "features": {
+      "title": "Key Features",
+      "description": "NextPlate includes everything you need to build modern web applications quickly.",
+      "items": [
+        {
+          "title": "Secure Authentication",
+          "description": "Complete integration with Supabase and Mailgun for a robust and professional authentication experience.",
+          "icon": "lock"
+        },
+        {
+          "title": "Modern Interface",
+          "description": "Elegant and accessible UI components with Shadcn, ready to customize according to your needs.",
+          "icon": "palette"
+        },
+        {
+          "title": "Integrated Payments",
+          "description": "Payment and subscription processing with Stripe, including pre-configured webhooks.",
+          "icon": "creditCard"
+        },
+        {
+          "title": "Artificial Intelligence",
+          "description": "Practical examples of OpenAI integration to add AI capabilities to your application.",
+          "icon": "brain"
+        },
+        {
+          "title": "Legal Compliance",
+          "description": "Customizable legal documents and cookie banner to comply with GDPR and other regulations.",
+          "icon": "shield"
+        },
+        {
+          "title": "Multilingual",
+          "description": "Support for multiple languages with pre-configured translations for Spanish and English.",
+          "icon": "globe"
+        }
+      ]
+    },
+    "howItWorks": {
+      "title": "How It Works",
+      "description": "NextPlate is designed to be intuitive and easy to customize, following these simple steps:",
+      "steps": [
+        {
+          "title": "Clone the repository",
+          "description": "Start with a git clone to get all the base code on your local machine."
+        },
+        {
+          "title": "Configure environment variables",
+          "description": "Customize the variables in the .env file to connect with your services (Supabase, Stripe, etc.)."
+        },
+        {
+          "title": "Customize components",
+          "description": "Modify UI components according to your design and functionality needs."
+        },
+        {
+          "title": "Deploy your application",
+          "description": "Use Vercel or another provider to deploy your application to production."
+        }
+      ]
+    },
+    "testimonials": {
+      "title": "Testimonials",
+      "items": [
+        {
+          "quote": "NextPlate saved me weeks of setup. I was able to launch my SaaS in record time.",
+          "author": "Maria Gonzalez",
+          "role": "Founder, TechStart"
+        },
+        {
+          "quote": "The integration with Supabase and Stripe worked perfectly from the start.",
+          "author": "Carlos Rodriguez",
+          "role": "Full-Stack Developer"
+        },
+        {
+          "quote": "The UI components are beautiful and the documentation is clear and complete.",
+          "author": "Ana Martinez",
+          "role": "UX/UI Designer"
+        }
+      ]
+    },
+    "cta": {
+      "title": "Start building today",
+      "description": "NextPlate provides everything you need to launch your next web application quickly.",
+      "buttonText": "Get Started",
+      "secondaryButtonText": "View Documentation",
+      "buttonUrl": "/en/sign-up",
+      "secondaryButtonUrl": "/en/docs"
+    },
+    "footer": {
+      "copyright": " 2025 NextPlate. All rights reserved.",
+      "links": [
+        {
+          "text": "Home",
+          "url": "/"
+        },
+        {
+          "text": "Features",
+          "url": "/#features"
+        },
+        {
+          "text": "Documentation",
+          "url": "/en/docs"
+        },
+        {
+          "text": "Terms",
+          "url": "/en/terms"
+        },
+        {
+          "text": "Privacy",
+          "url": "/en/privacy"
+        }
+      ]
+    }
+  },
+  "auth": {
+    "signIn": {
+      "title": "Sign in",
+      "emailLabel": "Email",
+      "passwordLabel": "Password",
+      "button": "Sign in",
+      "forgotPassword": "Forgot password?",
+      "noAccount": "Don't have an account?",
+      "signUp": "Sign up",
+      "orContinueWith": "Or continue with",
+      "googleButton": "Google",
+      "githubButton": "GitHub"
+    },
+    "signUp": {
+      "title": "Create account",
+      "emailLabel": "Email",
+      "passwordLabel": "Password",
+      "button": "Sign up",
+      "alreadyAccount": "Already have an account?",
+      "signIn": "Sign in",
+      "orContinueWith": "Or continue with",
+      "googleButton": "Google",
+      "githubButton": "GitHub"
+    },
+    "forgotPassword": {
+      "title": "Reset password",
+      "description": "Enter your email and we'll send you a link to reset your password.",
+      "emailLabel": "Email",
+      "button": "Send link",
+      "backToSignIn": "Back to Sign In"
+    },
+    "envVarWarning": "Please update .env.local file with anon key and url",
+    "greeting": "Hey, {email}!",
+    "shortGreeting": "Hey!",
+    "signOut": "Sign out"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "welcome": "Welcome to your dashboard",
+    "stats": {
+      "title": "Statistics",
+      "projects": "Projects",
+      "tasks": "Tasks",
+      "completed": "Completed"
+    },
+    "recentActivity": {
+      "title": "Recent Activity",
+      "empty": "No recent activity"
+    }
+  },
+  "legal": {
+    "terms": {
+      "title": "Terms and Conditions",
+      "lastUpdated": "March 21, 2025",
+      "introduction": "Welcome to NextPlate. These Terms and Conditions govern your use of our boilerplate and associated services. By using NextPlate, you agree to comply with these terms. Please read them carefully."
+    },
+    "privacy": {
+      "title": "Privacy Policy",
+      "lastUpdated": "March 21, 2025",
+      "introduction": "At NextPlate, we respect your privacy and are committed to protecting your personal data. This Privacy Policy explains how we collect, use, and protect your information when you use our boilerplate."
+    },
+    "cookies": {
+      "title": "Cookie Policy",
+      "lastUpdated": "March 21, 2025",
+      "introduction": "This Cookie Policy explains what cookies are, how we use them, and how you can control them when you use NextPlate. By using our boilerplate, you agree to the use of cookies in accordance with this policy."
+    }
+  },
+  "common": {
+    "language": "Language",
+    "theme": "Theme",
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System",
+    "loading": "Loading...",
+    "error": "An error has occurred",
+    "retry": "Retry",
+    "save": "Save",
+    "cancel": "Cancel",
+    "close": "Close",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "search": "Search",
+    "filter": "Filter",
+    "sort": "Sort",
+    "settings": "Settings",
+    "profile": "Profile",
+    "logout": "Log out",
+    "dashboard": "Dashboard"
+  },
+  "docs": {
+    "meta": {
+      "title": "NextPlate Documentation",
+      "description": "Official documentation for NextPlate, a boilerplate for modern web applications."
+    },
+    "sidebar": {
+      "gettingStarted": "Getting Started",
+      "introduction": "Introduction",
+      "installation": "Installation",
+      "quickStart": "Quick Start",
+      "configuration": "Configuration",
+      "architecture": "Architecture",
+      "overview": "Overview",
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "database": "Database",
+      "deployment": "Deployment",
+      "bestPractices": "Best Practices",
+      "cleanCode": "Clean Code",
+      "solid": "SOLID Principles",
+      "patterns": "Design Patterns",
+      "supabase": "Supabase",
+      "mailgun": "Mailgun",
+      "stripe": "Stripe",
+      "openai": "OpenAI",
+      "development": "Development",
+      "workflow": "Workflow",
+      "testing": "Testing",
+      "phases": "Project Phases",
+      "i18n": "Internationalization",
+      "api": "API Reference",
+      "auth": "Authentication API",
+      "users": "Users API",
+      "payments": "Payments API",
+      "webhooks": "Webhooks API",
+      "components": "UI Components",
+      "ui": "UI Components Library",
+      "layout": "Layout Components",
+      "forms": "Form Components",
+      "data": "Data Components"
+    },
+    "home": {
+      "title": "NextPlate Documentation",
+      "description": "Welcome to the official NextPlate documentation. Here you'll find detailed guides, tutorials, and references to help you build your application.",
+      "whatIs": {
+        "title": "What is NextPlate?",
+        "description": "NextPlate is a comprehensive boilerplate for Next.js applications that provides a solid foundation for building modern web applications. It includes pre-configured authentication, payments, AI integration, and legal compliance features to help you get started quickly."
+      },
+      "features": {
+        "title": "Key Features",
+        "items": {
+          "auth": "Secure authentication with Supabase",
+          "ui": "Elegant UI components with Shadcn",
+          "payments": "Payment processing with Stripe",
+          "ai": "AI capabilities with OpenAI",
+          "legal": "Legal compliance tools",
+          "i18n": "Internationalization support"
+        }
+      },
+      "technologies": {
+        "title": "Technologies",
+        "items": {
+          "nextjs": "Next.js 15",
+          "react": "React 19",
+          "typescript": "TypeScript 5",
+          "tailwind": "Tailwind CSS",
+          "supabase": "Supabase",
+          "stripe": "Stripe",
+          "openai": "OpenAI"
+        }
+      },
+      "getStarted": {
+        "title": "Getting Started",
+        "description": "Follow these steps to get started with NextPlate. You'll need Node.js 18+ and npm installed on your machine."
+      },
+      "documentation": {
+        "title": "Documentation Sections",
+        "description": "Explore our comprehensive documentation to learn more about NextPlate and how to use it effectively.",
+        "sections": {
+          "gettingStarted": "Learn the basics of NextPlate and how to set up your first project.",
+          "architecture": "Understand the architecture and design principles behind NextPlate.",
+          "bestPractices": "Discover best practices for building scalable and maintainable applications.",
+          "configuration": "Configure NextPlate to work with external services and APIs.",
+          "development": "Learn about the development workflow and tools used in NextPlate."
+        }
+      }
+    },
+    "navigation": {
+      "previous": "Previous",
+      "next": "Next"
+    },
+    "cleanCode": {
+      "title": "Clean Code",
+      "description": "Principles and practices for writing clean, maintainable, and efficient code."
+    },
+    "patterns": {
+      "title": "Design Patterns",
+      "description": "Design patterns used in NextPlate to solve common problems in software development.",
+      "introduction": "Design patterns are proven solutions to common problems in software development. In NextPlate, we use various design patterns to create a robust, maintainable, and scalable architecture.",
+      "example": "Example in NextPlate:",
+      "creational": {
+        "title": "Creational Patterns",
+        "description": "Creational patterns focus on object creation mechanisms, trying to create objects in a manner suitable to the situation.",
+        "factoryMethod": {
+          "title": "Factory Method",
+          "description": "Defines an interface for creating an object, but lets subclasses decide which class to instantiate. Allows a class to delegate instantiation to subclasses."
+        },
+        "singleton": {
+          "title": "Singleton",
+          "description": "Ensures that a class has only one instance and provides a global point of access to it."
+        }
+      },
+      "structural": {
+        "title": "Structural Patterns",
+        "description": "Structural patterns deal with how classes and objects are composed to form larger structures.",
+        "adapter": {
+          "title": "Adapter",
+          "description": "Allows incompatible interfaces to work together by converting the interface of a class into another interface that clients expect."
+        },
+        "composite": {
+          "title": "Composite",
+          "description": "Composes objects into tree structures to represent part-whole hierarchies. Lets clients treat individual objects and compositions of objects uniformly."
+        }
+      },
+      "behavioral": {
+        "title": "Behavioral Patterns",
+        "description": "Behavioral patterns are concerned with the communication between objects and how responsibilities are distributed.",
+        "observer": {
+          "title": "Observer",
+          "description": "Defines a one-to-many dependency between objects so that when one object changes state, all its dependents are notified and updated automatically."
+        },
+        "strategy": {
+          "title": "Strategy",
+          "description": "Defines a family of algorithms, encapsulates each one, and makes them interchangeable. Lets the algorithm vary independently from clients that use it."
+        }
+      },
+      "architectural": {
+        "title": "Architectural Patterns",
+        "description": "Architectural patterns define the overall structure of a software system.",
+        "mvc": {
+          "title": "MVC (Model-View-Controller)",
+          "description": "Separates an application into three main components: the Model (data and business logic), the View (user interface), and the Controller (handles user input).",
+          "example": "In Next.js, this pattern is implemented naturally:",
+          "model": "Model",
+          "modelDescription": "Services and utilities that handle data and business logic",
+          "view": "View",
+          "viewDescription": "React components that render the user interface",
+          "controller": "Controller",
+          "controllerDescription": "API routes and event handlers that process user input"
+        },
+        "repository": {
+          "title": "Repository",
+          "description": "Separates the logic that retrieves data and maps it to an entity model from the rest of the business logic."
+        }
+      }
+    },
+    "solid": {
+      "title": "SOLID Principles",
+      "description": "Learn about the best practices implemented in NextPlate to ensure code quality, maintainability, and scalability.",
+      "singleResponsibility": {
+        "title": "Single Responsibility Principle",
+        "description": "A class or module should have only one reason to change."
+      },
+      "openClosed": {
+        "title": "Open/Closed Principle",
+        "description": "Software entities should be open for extension but closed for modification."
+      },
+      "liskovSubstitution": {
+        "title": "Liskov Substitution Principle",
+        "description": "Objects of a superclass should be replaceable with objects of a subclass without affecting the functionality."
+      },
+      "interfaceSegregation": {
+        "title": "Interface Segregation Principle",
+        "description": "Many client-specific interfaces are better than one general-purpose interface."
+      },
+      "dependencyInversion": {
+        "title": "Dependency Inversion Principle",
+        "description": "High-level modules should not depend on low-level modules. Both should depend on abstractions."
+      },
+      "implementation": {
+        "title": "Implementation in NextPlate",
+        "description": "How SOLID principles are applied in NextPlate's architecture and code organization."
+      }
+    },
+    "configuration": {
+      "supabase": {
+        "title": "Supabase Configuration",
+        "description": "Learn how to set up and configure Supabase for authentication and database management in NextPlate.",
+        "setup": {
+          "title": "Setting Up Supabase"
+        },
+        "auth": {
+          "title": "Authentication Configuration"
+        },
+        "database": {
+          "title": "Database Configuration"
+        },
+        "environment": {
+          "title": "Environment Variables"
+        }
+      },
+      "mailgun": {
+        "title": "Mailgun Configuration",
+        "description": "Learn how to set up and configure Mailgun for email delivery in NextPlate.",
+        "intro": {
+          "title": "Introduction to Mailgun"
+        },
+        "setup": {
+          "title": "Setting Up Mailgun"
+        },
+        "supabase": {
+          "title": "Integrating with Supabase"
+        },
+        "templates": {
+          "title": "Email Templates"
+        }
+      },
+      "stripe": {
+        "title": "Stripe Configuration",
+        "description": "Learn how to set up and configure Stripe for payment processing in NextPlate.",
+        "intro": {
+          "title": "Introduction to Stripe"
+        },
+        "setup": {
+          "title": "Setting Up Stripe"
+        },
+        "integration": {
+          "title": "Integrating Stripe with NextPlate"
+        },
+        "usage": {
+          "title": "Using Stripe in NextPlate"
+        }
+      },
+      "openai": {
+        "title": "OpenAI Configuration",
+        "description": "Learn how to set up and configure OpenAI for AI-powered features in NextPlate.",
+        "intro": {
+          "title": "Introduction to OpenAI"
+        },
+        "setup": {
+          "title": "Setting Up OpenAI"
+        },
+        "integration": {
+          "title": "Integrating OpenAI with NextPlate"
+        },
+        "usage": {
+          "title": "Using OpenAI in NextPlate"
+        }
+      }
+    },
+    "development": {
+      "workflow": {
+        "title": "Development Workflow",
+        "description": "Learn about the development workflow and tools used in NextPlate.",
+        "intro": {
+          "title": "Workflow Introduction"
+        },
+        "setup": {
+          "title": "Environment Setup"
+        },
+        "commands": {
+          "title": "Useful Commands"
+        },
+        "branching": {
+          "title": "Branching Strategy"
+        },
+        "conventions": {
+          "title": "Code Conventions"
+        },
+        "deployment": {
+          "title": "Production Deployment"
+        }
+      },
+      "testing": {
+        "title": "Testing",
+        "description": "Learn about testing strategies and tools in NextPlate.",
+        "intro": {
+          "title": "Testing Introduction"
+        },
+        "types": {
+          "title": "Types of Tests"
+        },
+        "tools": {
+          "title": "Testing Tools"
+        },
+        "running": {
+          "title": "Running Tests"
+        },
+        "best": {
+          "title": "Testing Best Practices"
+        }
+      },
+      "phases": {
+        "title": "Project Phases",
+        "description": "Understanding the different phases of a NextPlate project lifecycle, from planning to deployment and maintenance.",
+        "intro": {
+          "title": "Project Lifecycle Overview",
+          "description": "Every NextPlate project typically goes through several distinct phases, each with its own set of activities, deliverables, and best practices."
+        },
+        "planning": {
+          "title": "Planning Phase",
+          "description": "The initial phase where project requirements are gathered, analyzed, and documented."
+        },
+        "design": {
+          "title": "Design Phase",
+          "description": "Creating the architectural blueprint and UI/UX design for the application."
+        },
+        "development": {
+          "title": "Development Phase",
+          "description": "Implementing the application features according to the design and requirements."
+        },
+        "testing": {
+          "title": "Testing Phase",
+          "description": "Verifying that the application works as expected and meets all requirements."
+        },
+        "deployment": {
+          "title": "Deployment Phase",
+          "description": "Releasing the application to production and making it available to users."
+        },
+        "maintenance": {
+          "title": "Maintenance Phase",
+          "description": "Ongoing support, updates, and improvements after the initial release."
+        }
+      },
+      "i18n": {
+        "title": "Internationalization",
+        "description": "Learn how to make your NextPlate application available in multiple languages.",
+        "intro": {
+          "title": "Introduction to i18n"
+        },
+        "structure": {
+          "title": "Translation Structure"
+        },
+        "usage": {
+          "title": "Using Translations"
+        },
+        "routing": {
+          "title": "i18n Routing"
+        },
+        "best": {
+          "title": "i18n Best Practices"
+        }
+      },
+      "deployment": {
+        "title": "Deployment",
+        "description": "Learn how to deploy your NextPlate application to various hosting providers.",
+        "intro": {
+          "title": "Deployment Options"
+        },
+        "vercel": {
+          "title": "Deploying to Vercel"
+        },
+        "netlify": {
+          "title": "Deploying to Netlify"
+        },
+        "docker": {
+          "title": "Deploying with Docker"
+        },
+        "self": {
+          "title": "Self-Hosting"
+        }
+      }
+    },
+    "api": {
+      "overview": {
+        "title": "API Overview",
+        "description": "Learn about the NextPlate API structure, authentication, and usage examples.",
+        "intro": {
+          "title": "Introduction to the API"
+        },
+        "structure": {
+          "title": "API Structure"
+        },
+        "authentication": {
+          "title": "Authentication"
+        },
+        "responses": {
+          "title": "API Responses"
+        },
+        "examples": {
+          "title": "Usage Examples"
+        }
+      },
+      "auth": {
+        "title": "Authentication API",
+        "description": "Learn about the authentication endpoints available in NextPlate.",
+        "intro": {
+          "title": "Authentication Introduction"
+        },
+        "endpoints": {
+          "title": "Authentication Endpoints"
+        },
+        "oauth": {
+          "title": "OAuth Authentication"
+        },
+        "errors": {
+          "title": "Authentication Errors"
+        }
+      },
+      "users": {
+        "title": "Users API",
+        "description": "Learn about the user management endpoints available in NextPlate.",
+        "intro": {
+          "title": "Users API Introduction"
+        },
+        "endpoints": {
+          "title": "User Endpoints"
+        },
+        "preferences": {
+          "title": "User Preferences"
+        },
+        "sessions": {
+          "title": "User Sessions"
+        },
+        "errors": {
+          "title": "User API Errors"
+        }
+      },
+      "payments": {
+        "title": "Payments API",
+        "description": "Learn about the payment processing endpoints available in NextPlate.",
+        "intro": {
+          "title": "Payments API Introduction"
+        },
+        "endpoints": {
+          "title": "Payment Endpoints"
+        },
+        "subscriptions": {
+          "title": "Subscription Management"
+        },
+        "transactions": {
+          "title": "Transaction History"
+        },
+        "webhooks": {
+          "title": "Payment Webhooks"
+        }
+      },
+      "webhooks": {
+        "title": "Webhooks API",
+        "description": "Learn about the webhook endpoints available in NextPlate for integrating with external services.",
+        "intro": {
+          "title": "Webhooks Introduction"
+        },
+        "stripe": {
+          "title": "Stripe Webhooks"
+        },
+        "mailgun": {
+          "title": "Mailgun Webhooks"
+        },
+        "custom": {
+          "title": "Custom Webhooks"
+        }
+      }
+    },
+    "components": {
+      "overview": {
+        "title": "UI Components",
+        "description": "Learn about the reusable UI components available in NextPlate.",
+        "intro": {
+          "title": "Components Introduction"
+        },
+        "structure": {
+          "title": "Component Structure"
+        },
+        "usage": {
+          "title": "Using Components"
+        },
+        "ui": {
+          "title": "UI Components"
+        },
+        "auth": {
+          "title": "Authentication Components"
+        },
+        "forms": {
+          "title": "Form Components",
+          "description": "Learn about the form components available in NextPlate for creating interactive and accessible forms.",
+          "intro": {
+            "title": "Form Components Introduction"
+          }
+        },
+        "data": {
+          "title": "Data Display Components",
+          "description": "Learn about the data display components available in NextPlate for presenting information clearly and effectively.",
+          "intro": {
+            "title": "Data Display Components Introduction"
+          }
+        }
+      },
+      "ui": {
+        "title": "UI Components",
+        "description": "Learn about the UI components available in NextPlate for building modern interfaces.",
+        "intro": {
+          "title": "UI Components Introduction"
+        }
+      },
+      "layout": {
+        "title": "Layout Components",
+        "description": "Learn about the layout components available in NextPlate for organizing your application content.",
+        "intro": {
+          "title": "Layout Components Introduction"
+        }
+      },
+      "forms": {
+        "title": "Form Components",
+        "description": "Learn about the form components available in NextPlate for creating interactive and accessible forms.",
+        "intro": {
+          "title": "Form Components Introduction"
+        }
+      },
+      "data": {
+        "title": "Data Display Components",
+        "description": "Learn about the data display components available in NextPlate for presenting information clearly and effectively.",
+        "intro": {
+          "title": "Data Display Components Introduction"
+        }
+      }
+    },
+    "gettingStarted": {
+      "introduction": {
+        "title": "Introduction to NextPlate",
+        "description": "Learn about NextPlate, its key features, and how it can help you build modern web applications quickly.",
+        "whatIs": {
+          "title": "What is NextPlate?",
+          "description": "NextPlate is a comprehensive boilerplate for Next.js applications that provides a solid foundation for building modern web applications. It includes pre-configured authentication, payments, AI integration, and legal compliance features to help you get started quickly."
+        },
+        "keyFeatures": {
+          "title": "Key Features"
+        },
+        "uniqueValue": {
+          "title": "Unique Value Proposition"
+        },
+        "targetAudience": {
+          "title": "Target Audience"
+        }
+      },
+      "installation": {
+        "title": "Installation",
+        "description": "Learn how to install and set up NextPlate for your project.",
+        "requirements": {
+          "title": "Requirements",
+          "description": "Before you start, make sure you have the following installed:",
+          "items": {
+            "node": "Node.js (version 18 or higher)",
+            "npm": "npm (usually comes with Node.js)",
+            "git": "Git (for cloning the repository)"
+          }
+        },
+        "steps": {
+          "title": "Installation Steps",
+          "clone": {
+            "title": "1. Clone the Repository",
+            "description": "First, clone the NextPlate repository to your local machine:"
+          },
+          "dependencies": {
+            "title": "2. Install Dependencies",
+            "description": "Navigate to the project directory and install the dependencies:"
+          },
+          "env": {
+            "title": "3. Set Up Environment Variables",
+            "description": "Create a local environment file by copying the example file:"
+          },
+          "run": {
+            "title": "4. Run the Development Server",
+            "description": "Start the development server to see your application in action:"
+          }
+        },
+        "troubleshooting": {
+          "title": "Troubleshooting",
+          "description": "If you encounter any issues during installation, try the following solutions:",
+          "items": {
+            "dependencies": "Make sure all dependencies are correctly installed by running 'npm install' again.",
+            "cache": "Clear npm cache with 'npm cache clean --force' and try reinstalling dependencies.",
+            "modules": "If you see module not found errors, try deleting the node_modules folder and reinstalling dependencies."
+          }
+        }
+      },
+      "quickStart": {
+        "title": "Quick Start Guide",
+        "description": "Get started with NextPlate quickly with this step-by-step guide.",
+        "overview": {
+          "title": "Overview",
+          "description": "This guide will help you quickly get started with NextPlate, covering basic configuration and key features."
+        },
+        "prerequisites": {
+          "title": "Prerequisites",
+          "description": "Before you begin, make sure you have completed the installation process and have the following ready:"
+        },
+        "basicUsage": {
+          "title": "Basic Usage",
+          "description": "Here's how to set up and use the core features of NextPlate:",
+          "steps": {
+            "authentication": {
+              "title": "Authentication Setup",
+              "description": "Configure authentication with Supabase by setting up your environment variables:"
+            },
+            "database": {
+              "title": "Database Configuration",
+              "description": "Set up your database schema in Supabase with the following SQL:"
+            },
+            "payments": {
+              "title": "Payment Integration",
+              "description": "Set up Stripe integration for payment processing:"
+            },
+            "deployment": {
+              "title": "Deployment",
+              "description": "Deploy your NextPlate application to production:"
+            }
+          }
+        },
+        "nextSteps": {
+          "title": "Next Steps",
+          "description": "Now that you have the basics set up, here are some next steps to consider:",
+          "items": {
+            "customization": "Customize the UI and branding to match your project requirements",
+            "features": "Explore and implement additional features like AI integration or analytics",
+            "testing": "Set up testing with Jest and Cypress for your application",
+            "optimization": "Optimize performance with image optimization and code splitting"
+          }
+        }
+      }
+    },
+    "architecture": {
+      "overview": {
+        "title": "Architecture Overview",
+        "description": "Learn about the architecture of NextPlate, its components, and how they interact with each other.",
+        "diagram": {
+          "title": "Architecture Diagram"
+        },
+        "mainFlow": {
+          "title": "Main Flow"
+        },
+        "components": {
+          "title": "Components",
+          "frontend": {
+            "title": "Frontend"
+          },
+          "backend": {
+            "title": "Backend"
+          }
+        },
+        "scalability": {
+          "title": "Scalability Considerations"
+        }
+      },
+      "frontend": {
+        "title": "Frontend Architecture",
+        "description": "Learn about the frontend architecture of NextPlate, including components, routing, state management, styling, and performance optimizations.",
+        "overview": {
+          "title": "Overview",
+          "description": "A high-level overview of the frontend architecture in NextPlate."
+        },
+        "components": {
+          "title": "Component Structure",
+          "description": "How components are organized and structured in NextPlate."
+        },
+        "routing": {
+          "title": "Routing and Navigation",
+          "description": "How routing works in NextPlate with Next.js file-based routing and internationalization."
+        },
+        "stateManagement": {
+          "title": "State Management",
+          "description": "Approaches to state management used in NextPlate, from local state to context and custom hooks."
+        },
+        "styling": {
+          "title": "Styling and Theming",
+          "description": "How styling is implemented using TailwindCSS, Shadcn UI, and CSS modules."
+        },
+        "performance": {
+          "title": "Performance Optimizations",
+          "description": "Strategies used to optimize frontend performance in NextPlate."
+        }
+      },
+      "backend": {
+        "title": "Backend Architecture",
+        "description": "Learn about the backend architecture of NextPlate, including API routes, database, authentication, external services, and security measures.",
+        "overview": {
+          "title": "Overview",
+          "description": "A high-level overview of the backend architecture in NextPlate."
+        },
+        "apiRoutes": {
+          "title": "API Routes",
+          "description": "How API routes are organized and implemented in NextPlate."
+        },
+        "database": {
+          "title": "Database Structure",
+          "description": "How data is organized and stored in the Supabase PostgreSQL database."
+        },
+        "authentication": {
+          "title": "Authentication System",
+          "description": "How user authentication and authorization are implemented using Supabase Auth."
+        },
+        "externalServices": {
+          "title": "External Services Integration",
+          "description": "How NextPlate integrates with external services like Stripe, email providers, and more."
+        },
+        "security": {
+          "title": "Security Measures",
+          "description": "Security practices implemented in the backend to protect data and users."
+        }
+      }
+    },
+    "bestPractices": {
+      "solid": {
+        "title": "SOLID Principles",
+        "description": "Learn about SOLID principles and how to apply them in your NextPlate projects for more maintainable and robust code."
+      }
+    }
+  }
+}

@@ -4,9 +4,13 @@ import Link from "next/link";
 import { Badge } from "./ui/badge";
 import { Button } from "./ui/button";
 import { createClient } from "@/utils/supabase/server";
+import { getTranslations } from 'next-intl/server';
+import { getLocale } from 'next-intl/server';
 
 export default async function AuthButton() {
   const supabase = await createClient();
+  const t = await getTranslations('auth');
+  const locale = await getLocale();
 
   const {
     data: { user },
@@ -21,7 +25,7 @@ export default async function AuthButton() {
               variant={"default"}
               className="font-normal pointer-events-none"
             >
-              Please update .env.local file with anon key and url
+              {t('envVarWarning')}
             </Badge>
           </div>
           <div className="flex gap-2">
@@ -32,7 +36,7 @@ export default async function AuthButton() {
               disabled
               className="opacity-75 cursor-none pointer-events-none"
             >
-              <Link href="/sign-in">Sign in</Link>
+              <Link href={`/${locale}/sign-in`}>{t('signIn')}</Link>
             </Button>
             <Button
               asChild
@@ -41,7 +45,7 @@ export default async function AuthButton() {
               disabled
               className="opacity-75 cursor-none pointer-events-none"
             >
-              <Link href="/sign-up">Sign up</Link>
+              <Link href={`/${locale}/sign-up`}>{t('signUp')}</Link>
             </Button>
           </div>
         </div>
@@ -50,20 +54,21 @@ export default async function AuthButton() {
   }
   return user ? (
     <div className="flex items-center gap-4">
-      Hey, {user.email}!
+      <span className="hidden md:flex">{t('greeting', { email: user.email || '' })}</span>
+      <span className="md:hidden">{t('shortGreeting')}</span>
       <form action={signOutAction}>
         <Button type="submit" variant={"outline"}>
-          Sign out
+          {t('signOut')}
         </Button>
       </form>
     </div>
   ) : (
     <div className="flex gap-2">
       <Button asChild size="sm" variant={"outline"}>
-        <Link href="/sign-in">Sign in</Link>
+        <Link href={`/${locale}/sign-in`}>{t('signIn.title')}</Link>
       </Button>
       <Button asChild size="sm" variant={"default"}>
-        <Link href="/sign-up">Sign up</Link>
+        <Link href={`/${locale}/sign-up`}>{t('signUp.title')}</Link>
       </Button>
     </div>
   );

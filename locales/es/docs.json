@@ -1,0 +1,45 @@
+{
+  "meta": {
+    "title": "Documentación - NextPlate",
+    "description": "Guía completa para comenzar con NextPlate, un boilerplate avanzado para aplicaciones web modernas."
+  },
+  "home": {
+    "title": "Documentación de NextPlate",
+    "description": "Bienvenido a la documentación oficial de NextPlate. Aquí encontrarás guías detalladas, tutoriales y referencias para ayudarte a construir tu aplicación."
+  },
+  "sidebar": {
+    "gettingStarted": "Primeros pasos",
+    "introduction": "Introducción",
+    "installation": "Instalación",
+    "quickStart": "Inicio rápido",
+    "architecture": "Arquitectura",
+    "projectStructure": "Estructura del proyecto",
+    "routing": "Enrutamiento",
+    "stateManagement": "Gestión de estado",
+    "features": "Características",
+    "authentication": "Autenticación",
+    "database": "Base de datos",
+    "payments": "Pagos",
+    "ai": "Inteligencia Artificial",
+    "i18n": "Internacionalización",
+    "configuration": "Configuración",
+    "supabase": "Supabase",
+    "stripe": "Stripe",
+    "openai": "OpenAI",
+    "mailgun": "Mailgun",
+    "deployment": "Despliegue",
+    "vercel": "Vercel",
+    "docker": "Docker",
+    "customization": "Personalización",
+    "themes": "Temas",
+    "components": "Componentes",
+    "advanced": "Avanzado",
+    "testing": "Pruebas",
+    "security": "Seguridad",
+    "performance": "Rendimiento"
+  },
+  "navigation": {
+    "previous": "Anterior",
+    "next": "Siguiente"
+  }
+}
