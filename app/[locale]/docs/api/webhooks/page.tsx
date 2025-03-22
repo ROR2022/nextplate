@@ -2,27 +2,30 @@ import { getTranslations } from "next-intl/server";
 import DocContent from "../../components/doc-content";
 import DocNavigation from "../../components/doc-navigation";
 import { Metadata } from "next";
+import { ReactNode } from "react";
+
+// Definir el tipo Props de manera consistente con el resto del proyecto
+type Props = {
+  children?: ReactNode;
+  params: {locale: string};
+};
 
 export async function generateMetadata({
   params,
-}: {
-  params: { locale: string };
-}): Promise<Metadata> {
+}: Props): Promise<Metadata> {
   // Extraer el locale de params después de que Next.js lo haya resuelto completamente
   const { locale } = await Promise.resolve(params);
   const t = await getTranslations({ locale, namespace: "docs" });
   
   return {
-    title: `${t("sidebar.webhooks")} - ${t("meta.title")}`,
+    title: t("sidebar.webhooks") + " - " + t("meta.title"),
     description: t("api.webhooks.description"),
   };
 }
 
 export default async function ApiWebhooksPage({
   params,
-}: {
-  params: { locale: string };
-}) {
+}: Props) {
   // Extraer el locale de params después de que Next.js lo haya resuelto completamente
   const { locale } = await Promise.resolve(params);
   const t = await getTranslations({ locale, namespace: "docs" });
@@ -126,7 +129,7 @@ export async function POST(req: Request) {
     
     return Response.json({ received: true });
   } catch (err) {
-    return new Response(\`Webhook Error: \${err.message}\`, { status: 400 });
+    return new Response("Webhook Error: " + err.message, { status: 400 });
   }
 }`}
               </code>
@@ -333,28 +336,25 @@ import { NextResponse } from 'next/server';
 export async function POST(req: Request) {
   // Verificar la autenticación
   const authHeader = req.headers.get('authorization');
-  if (!authHeader || authHeader !== \`Bearer \${process.env.CUSTOM_WEBHOOK_SECRET}\`) {
+  if (!authHeader || authHeader !== "Bearer " + process.env.CUSTOM_WEBHOOK_SECRET) {
     return new Response('Unauthorized', { status: 401 });
   }
   
   try {
     const data = await req.json();
     
-    // Procesar los datos según el tipo de evento
+    // Procesar según el tipo de evento
     switch (data.event) {
-      case 'user.created':
-        // Lógica para manejar la creación de usuarios
-        break;
-      case 'order.completed':
+      case "order.completed":
         // Lógica para manejar órdenes completadas
         break;
       default:
-        return new Response(\`Evento no soportado: \${data.event}\`, { status: 400 });
+        return new Response("Evento no soportado: " + data.event, { status: 400 });
     }
     
     return NextResponse.json({ received: true });
   } catch (error) {
-    return new Response(\`Error: \${error.message}\`, { status: 500 });
+    return new Response("Error: " + error.message, { status: 500 });
   }
 }`}
               </code>

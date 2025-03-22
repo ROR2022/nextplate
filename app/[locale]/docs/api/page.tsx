@@ -2,12 +2,17 @@ import { getTranslations } from "next-intl/server";
 import DocContent from "../components/doc-content";
 import DocNavigation from "../components/doc-navigation";
 import { Metadata } from "next";
+import { ReactNode } from "react";
+
+// Definir el tipo Props de manera consistente con el resto del proyecto
+type Props = {
+  children?: ReactNode;
+  params: {locale: string};
+};
 
 export async function generateMetadata({
   params,
-}: {
-  params: { locale: string };
-}): Promise<Metadata> {
+}: Props): Promise<Metadata> {
   // Extraer el locale de params después de que Next.js lo haya resuelto completamente
   const { locale } = await Promise.resolve(params);
   const t = await getTranslations({ locale, namespace: "docs" });
@@ -20,9 +25,7 @@ export async function generateMetadata({
 
 export default async function ApiPage({
   params,
-}: {
-  params: { locale: string };
-}) {
+}: Props) {
   // Extraer el locale de params después de que Next.js lo haya resuelto completamente
   const { locale } = await Promise.resolve(params);
   const t = await getTranslations({ locale, namespace: "docs" });
