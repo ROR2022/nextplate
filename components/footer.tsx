@@ -42,6 +42,10 @@ export default function Footer() {
     {
       text: t('links.4.text'),
       url: t('links.4.url')
+    },
+    {
+      text: t('links.5.text'),
+      url: t('links.5.url')
     }
   ];
 

@@ -8,7 +8,9 @@ export type Locale = (typeof locales)[number];
 export default getRequestConfig(async ({requestLocale}) => {
   const locale = await requestLocale as string;
   // Valida que el idioma solicitado esté soportado
-  if (!locales.includes(locale as Locale)) notFound();
+  if (!locales.includes(locale as Locale)) {
+    notFound();
+  }
 
   // Carga los mensajes para el idioma solicitado
   const messages = (await import(`./locales/${locale}/index.json`)).default;

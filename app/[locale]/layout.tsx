@@ -28,7 +28,9 @@ export default async function LocaleLayout({
   //console.log('locale:..', locale);
 
   // Validar que el locale es soportado
-  if (!locales.includes(locale as Locale)) notFound();
+  if (!locales.includes(locale as Locale)) {
+    notFound();
+  }
 
   //console.log('si vemos esto es que el locale es soportado...');
 

@@ -60,7 +60,9 @@ export default function LegalDocumentComponent({ contentKey }: LegalDocumentProp
     setMounted(true);
   }, []);
 
-  if (!mounted) return null;
+  if (!mounted) {
+    return null;
+  }
 
   // Renderizar un estado de carga
   if (isLoading || !content) {
