@@ -171,6 +171,86 @@
     "recentActivity": {
       "title": "Recent Activity",
       "empty": "No recent activity"
+    },
+    "subscription": {
+      "title": "Subscription",
+      "description": "Manage your subscription plan",
+      "message": "View and manage your current subscription plan",
+      "manage": "Manage Subscription"
+    }
+  },
+  "subscription": {
+    "title": "Subscription Management",
+    "description": "View and manage your subscription details",
+    "details": {
+      "title": "Subscription Details",
+      "description": "Your current subscription information",
+      "status": "Status",
+      "currentPlan": "Current Plan",
+      "price": "Price",
+      "renewalDate": "Next Renewal",
+      "cancelAt": "Cancels On",
+      "noSubscription": "You don't have an active subscription",
+      "loading": "Loading subscription details..."
+    },
+    "status": {
+      "active": "Active",
+      "trialing": "Trial",
+      "canceled": "Canceled",
+      "pastDue": "Past Due",
+      "incomplete": "Incomplete",
+      "incompleteExpired": "Expired",
+      "unpaid": "Unpaid"
+    },
+    "actions": {
+      "title": "Subscription Actions",
+      "description": "Manage your subscription",
+      "manageBilling": "Manage Billing",
+      "cancelSubscription": "Cancel Subscription",
+      "subscribe": "Subscribe Now",
+      "confirmCancel": "Confirm Cancellation",
+      "cancelQuestion": "Are you sure you want to cancel your subscription?",
+      "cancelConfirm": "Yes, Cancel",
+      "cancelCancel": "No, Keep It",
+      "loading": "Processing..."
+    },
+    "sync": {
+      "needed": "We've detected you completed a payment, but your subscription hasn't been activated yet. Click the button to activate it.",
+      "button": "Activate Subscription",
+      "success": "Subscription activated successfully",
+      "error": "Error activating subscription"
+    },
+    "help": {
+      "title": "Need Help?",
+      "description": "If you have any questions about your subscription or need assistance, please check our documentation or contact support.",
+      "learnMore": "Learn More About Payments"
+    }
+  },
+  "pricing": {
+    "meta": {
+      "title": "Pricing Plans | NextPlate",
+      "description": "Choose the right plan for your needs and start building your next project."
+    },
+    "title": "Simple, Transparent Pricing",
+    "description": "Choose the plan that fits your needs. All plans include core features.",
+    "monthly": "Monthly",
+    "annually": "Annually",
+    "switchLabel": "Toggle between monthly and annual billing",
+    "currency": "USD",
+    "perMonth": "/mo",
+    "perYear": "/yr",
+    "saveText": "Save {percent} with annual billing",
+    "currentPlan": "Current Plan",
+    "popularPlan": "Popular",
+    "getStarted": "Get Started",
+    "subscribe": "Subscribe",
+    "features": {
+      "feature1": "Basic functionality",
+      "feature2": "Secure authentication",
+      "feature3": "Priority support",
+      "feature4": "Advanced analytics",
+      "feature5": "Custom branding",
+      "feature6": "API access"
     }
   },
   "legal": {
@@ -688,7 +768,8 @@
           "title": "Using Components"
         },
         "ui": {
-          "title": "UI Components"
+          "title": "UI Components",
+          "description": "Learn about UI components available in NextPlate for building modern interfaces."
         },
         "auth": {
           "title": "Authentication Components"
@@ -924,7 +1005,57 @@
     "bestPractices": {
       "solid": {
         "title": "SOLID Principles",
-        "description": "Learn about SOLID principles and how to apply them in your NextPlate projects for more maintainable and robust code."
+        "description": "Learn about SOLID principles and how to apply them in your NextPlate projects for more maintainable and robust code.",
+        "singleResponsibility": {
+          "title": "Single Responsibility Principle",
+          "description": "A class or module should have only one reason to change."
+        },
+        "openClosed": {
+          "title": "Open/Closed Principle",
+          "description": "Software entities should be open for extension but closed for modification."
+        },
+        "liskovSubstitution": {
+          "title": "Liskov Substitution Principle",
+          "description": "Objects of a superclass should be replaceable with objects of a subclass without affecting functionality."
+        },
+        "interfaceSegregation": {
+          "title": "Interface Segregation Principle",
+          "description": "It's better to have many client-specific interfaces than one general-purpose interface."
+        },
+        "dependencyInversion": {
+          "title": "Dependency Inversion Principle",
+          "description": "High-level modules should not depend on low-level modules. Both should depend on abstractions."
+        },
+        "implementation": {
+          "title": "Implementation in NextPlate",
+          "description": "How SOLID principles are applied in NextPlate's architecture and code organization."
+        }
+      }
+    }
+  },
+  "admin": {
+    "title": "Administration",
+    "navigation": {
+      "stripe": "Stripe",
+      "users": "Users",
+      "settings": "Settings"
+    },
+    "stripe": {
+      "title": "Stripe Administration",
+      "sync": {
+        "title": "Products and Prices Synchronization",
+        "description": "Synchronize Stripe products and prices with the database",
+        "info": "This operation will fetch all products and prices from Stripe and save them to the database. Products and prices that no longer exist in Stripe will be marked as inactive.",
+        "button": "Sync Now",
+        "loading": "Syncing...",
+        "success": "Synchronization Successful",
+        "error": "Synchronization Error",
+        "comingSoon": "Coming Soon"
+      },
+      "status": {
+        "title": "Synchronization Status",
+        "description": "Check the current synchronization status",
+        "info": "The status of the last synchronization and statistics about the synchronized data will be displayed here. This functionality will be available in future updates."
       }
     }
   }

@@ -171,6 +171,86 @@
     "recentActivity": {
       "title": "Actividad reciente",
       "empty": "No hay actividad reciente"
+    },
+    "subscription": {
+      "title": "Suscripción",
+      "description": "Gestiona tu plan de suscripción",
+      "message": "Ver y gestionar tu plan de suscripción actual",
+      "manage": "Gestionar Suscripción"
+    }
+  },
+  "subscription": {
+    "title": "Gestión de Suscripción",
+    "description": "Ver y gestionar los detalles de tu suscripción",
+    "details": {
+      "title": "Detalles de Suscripción",
+      "description": "Información de tu suscripción actual",
+      "status": "Estado",
+      "currentPlan": "Plan Actual",
+      "price": "Precio",
+      "renewalDate": "Próxima Renovación",
+      "cancelAt": "Se Cancela El",
+      "noSubscription": "No tienes una suscripción activa",
+      "loading": "Cargando detalles de suscripción..."
+    },
+    "status": {
+      "active": "Activa",
+      "trialing": "Prueba",
+      "canceled": "Cancelada",
+      "pastDue": "Pago Pendiente",
+      "incomplete": "Incompleta",
+      "incompleteExpired": "Expirada",
+      "unpaid": "No Pagada"
+    },
+    "actions": {
+      "title": "Acciones de Suscripción",
+      "description": "Gestiona tu suscripción",
+      "manageBilling": "Gestionar Facturación",
+      "cancelSubscription": "Cancelar Suscripción",
+      "subscribe": "Suscribirse Ahora",
+      "confirmCancel": "Confirmar Cancelación",
+      "cancelQuestion": "¿Estás seguro de que quieres cancelar tu suscripción?",
+      "cancelConfirm": "Sí, Cancelar",
+      "cancelCancel": "No, Mantenerla",
+      "loading": "Procesando..."
+    },
+    "sync": {
+      "needed": "Hemos detectado que has completado un pago, pero tu suscripción aún no se ha activado. Haz clic en el botón para activarla.",
+      "button": "Activar Suscripción",
+      "success": "Suscripción activada correctamente",
+      "error": "Error al activar la suscripción"
+    },
+    "help": {
+      "title": "¿Necesitas Ayuda?",
+      "description": "Si tienes alguna pregunta sobre tu suscripción o necesitas asistencia, consulta nuestra documentación o contacta con soporte.",
+      "learnMore": "Más Información Sobre Pagos"
+    }
+  },
+  "pricing": {
+    "meta": {
+      "title": "Planes de Precios | NextPlate",
+      "description": "Elige el plan adecuado para tus necesidades y comienza a construir tu próximo proyecto."
+    },
+    "title": "Precios Simples y Transparentes",
+    "description": "Elige el plan que se adapte a tus necesidades. Todos los planes incluyen características fundamentales.",
+    "monthly": "Mensual",
+    "annually": "Anual",
+    "switchLabel": "Alternar entre facturación mensual y anual",
+    "currency": "USD",
+    "perMonth": "/mes",
+    "perYear": "/año",
+    "saveText": "Ahorra {percent} con facturación anual",
+    "currentPlan": "Plan Actual",
+    "popularPlan": "Popular",
+    "getStarted": "Comenzar",
+    "subscribe": "Suscribirse",
+    "features": {
+      "feature1": "Funcionalidad básica",
+      "feature2": "Autenticación segura",
+      "feature3": "Soporte prioritario",
+      "feature4": "Análisis avanzados",
+      "feature5": "Marca personalizada",
+      "feature6": "Acceso a API"
     }
   },
   "legal": {
@@ -260,7 +340,31 @@
     "bestPractices": {
       "solid": {
         "title": "Principios SOLID",
-        "description": "Aprende sobre los principios SOLID y cómo aplicarlos en tus proyectos NextPlate para un código más mantenible y robusto."
+        "description": "Aprende sobre los principios SOLID y cómo aplicarlos en tus proyectos NextPlate para un código más mantenible y robusto.",
+        "singleResponsibility": {
+          "title": "Principio de Responsabilidad Única",
+          "description": "Una clase o módulo debe tener una única razón para cambiar."
+        },
+        "openClosed": {
+          "title": "Principio de Abierto/Cerrado",
+          "description": "Las entidades de software deben ser abiertas para la extensión pero cerradas para la modificación."
+        },
+        "liskovSubstitution": {
+          "title": "Principio de Sustitución de Liskov",
+          "description": "Los objetos de una superclase deben ser reemplazables por objetos de una subclase sin afectar la funcionalidad."
+        },
+        "interfaceSegregation": {
+          "title": "Principio de Segregación de Interfaces",
+          "description": "Es mejor tener muchas interfaces específicas para clientes que una interfaz general."
+        },
+        "dependencyInversion": {
+          "title": "Principio de Inversión de Dependencias",
+          "description": "Los módulos de alto nivel no deben depender de los módulos de bajo nivel. Ambos deben depender de abstracciones."
+        },
+        "implementation": {
+          "title": "Aplicación en NextPlate",
+          "description": "Cómo se aplican los principios SOLID en la arquitectura y organización del código de NextPlate."
+        }
       }
     },
     "sidebar": {
@@ -987,6 +1091,10 @@
         "usage": {
           "title": "Uso de Componentes"
         },
+        "ui": {
+          "title": "Componentes UI",
+          "description": "Aprende sobre los componentes UI disponibles en NextPlate para construir interfaces modernas."
+        },
         "auth": {
           "title": "Componentes de Autenticación"
         },
@@ -1032,6 +1140,32 @@
         "intro": {
           "title": "Introducción a los Componentes de Visualización de Datos"
         }
+      }
+    }
+  },
+  "admin": {
+    "title": "Administración",
+    "navigation": {
+      "stripe": "Stripe",
+      "users": "Usuarios",
+      "settings": "Configuración"
+    },
+    "stripe": {
+      "title": "Administración de Stripe",
+      "sync": {
+        "title": "Sincronización de Productos y Precios",
+        "description": "Sincroniza los productos y precios de Stripe con la base de datos",
+        "info": "Esta operación traerá todos los productos y precios desde Stripe y los guardará en la base de datos. Los productos y precios que ya no existan en Stripe serán marcados como inactivos.",
+        "button": "Sincronizar ahora",
+        "loading": "Sincronizando...",
+        "success": "Sincronización exitosa",
+        "error": "Error de sincronización",
+        "comingSoon": "Próximamente"
+      },
+      "status": {
+        "title": "Estado de la Sincronización",
+        "description": "Verifica el estado actual de la sincronización",
+        "info": "Aquí se mostrará el estado de la última sincronización y estadísticas sobre los datos sincronizados. Esta funcionalidad estará disponible en futuras actualizaciones."
       }
     }
   }

@@ -14,7 +14,7 @@ export async function generateMetadata({
   
   return {
     title: `${t("sidebar.solid")} - ${t("meta.title")}`,
-    description: t("bestPractices.solid.description"),
+    description: t("solid.description"),
   };
 }
 
