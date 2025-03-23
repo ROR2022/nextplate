@@ -308,10 +308,11 @@ export async function syncSubscription(supabase: SupabaseClient, subscriptionId:
                 
                 // Buscar el perfil de usuario que tenga este customer_id
                 // console.log(`[SERVER:SYNC] Looking for user profile with this customer ID`);
+                //en este punto ubicaremos el usuario por su email
                 const { data: userProfile } = await supabase
                   .from('profiles')
                   .select('id')
-                  .eq('stripe_customer_id', customer.id)
+                  .eq('email', customer.email)
                   .single();
 
                 if (userProfile) {
