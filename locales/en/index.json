@@ -90,7 +90,8 @@
       "description": "NextPlate provides everything you need to launch your next web application quickly.",
       "buttonText": "Get Started",
       "secondaryButtonText": "View Documentation",
-      "buttonUrl": "/en/sign-up",
+      "buttonUrl": "/en/sign-in",
+      "buttonLoggedInUrl": "/en/dashboard",
       "secondaryButtonUrl": "/en/docs"
     },
     "footer": {

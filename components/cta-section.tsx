@@ -5,6 +5,12 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Github } from "lucide-react";
 import Link from "next/link";
 
+//necesitamos importar los datos de la session de supabase
+import { createClient } from '@/utils/supabase/client';
+import { useEffect } from 'react';
+import { useState } from 'react';
+import { User } from '@supabase/supabase-js';
+
 // Tipo para el contenido de CTA
 /* type CTAContent = {
   title: string;
@@ -19,10 +25,31 @@ import Link from "next/link";
  * Utiliza next-intl para las traducciones.
  * Implementa el principio de Responsabilidad Única al encargarse únicamente de mostrar la llamada a la acción.
  */
+
 export default function CTASection() {
   // Obtener las traducciones usando next-intl
   const t = useTranslations('landing.cta');
+  //usando createClient para obtener los datos de la session de supabase
+  const commonT = useTranslations('common');
+  const [user, setUser] = useState<User | null>(null);
+  const [loading, setLoading] = useState(true);
 
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const supabase = createClient();
+        const { data: { user } } = await supabase.auth.getUser();
+        setUser(user);
+      } catch (error) {
+        console.error("Error fetching user:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchUser();
+  }, []);
+  
   return (
     <section className="w-full py-16 bg-primary text-primary-foreground">
       <div className="max-w-4xl mx-auto text-center px-4">
@@ -38,9 +65,13 @@ export default function CTASection() {
             variant="secondary" 
             asChild
             className="font-semibold"
+            disabled={loading}
           >
-            <Link href={t('buttonUrl')}>
-              {t('buttonText')} <ArrowRight className="ml-2 h-4 w-4" />
+            {/** Aqui necesitamos un check para ver si el usuario esta logueado, y asignarle el href al boton de dashboard o el de signup */}
+            <Link href={user ? t('buttonLoggedInUrl') : t('buttonUrl')}>
+              {loading ? commonT('loading') : (
+                <>{t('buttonText')} <ArrowRight className="ml-2 h-4 w-4" /></>
+              )}
             </Link>
           </Button>
           <Button 

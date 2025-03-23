@@ -91,7 +91,8 @@
       "description": "NextPlate te proporciona todo lo que necesitas para lanzar tu próxima aplicación web rápidamente.",
       "buttonText": "Comenzar gratis",
       "secondaryButtonText": "Ver documentación",
-      "buttonUrl":"/es/sign-up",
+      "buttonUrl":"/es/sign-in",
+      "buttonLoggedInUrl":"/es/dashboard",
       "secondaryButtonUrl":"/es/docs"
     },
     "footer": {
