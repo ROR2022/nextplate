@@ -8,6 +8,7 @@ import { EnvVarWarning } from "@/components/env-var-warning";
 import { hasEnvVars } from "@/utils/supabase/check-env-vars";
 import Link from "next/link";
 import Footer from "@/components/footer";
+import CookieConsentBanner from "@/components/cookie-consent";
 
 type Props = {
   children: ReactNode;
@@ -71,6 +72,7 @@ export default async function LocaleLayout({
 
           <Footer />
         </div>
+        <CookieConsentBanner />
       </main>
     </NextIntlClientProvider>
   );

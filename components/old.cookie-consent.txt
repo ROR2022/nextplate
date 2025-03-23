@@ -1,0 +1,132 @@
+"use client";
+
+import { useState, useEffect } from "react";
+import CookieConsent from "react-cookie-consent";
+import { useLocale, useTranslations } from "next-intl";
+import Link from "next/link";
+
+/**
+ * Componente para mostrar el banner de consentimiento de cookies
+ * Implementa el principio de Responsabilidad Única al encargarse únicamente de gestionar el consentimiento de cookies
+ */
+export default function CookieConsentBanner() {
+  const [mounted, setMounted] = useState(false);
+  const locale = useLocale();
+  const t = useTranslations("common");
+
+  // Asegurar que el componente solo se renderice en el cliente
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return null;
+  }
+
+  //background: "var(--card)",
+
+  return (
+    <CookieConsent
+      location="bottom"   
+      buttonText={t("cookies.accept")}
+      declineButtonText={t("cookies.decline")}
+      cookieName="nextplate-cookie-consent"
+      style={{
+        background: "var(--card)",
+        color: "var(--card-foreground)",
+        border: "2px solid var(--primary)",
+        borderRadius: "0.75rem",
+        boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
+        margin: "1rem auto",
+        padding: "1.25rem 1.5rem",
+        maxWidth: "550px",
+        width: "calc(100% - 2rem)",
+        zIndex: 9999,
+        position: "fixed",
+        bottom: "1.5rem",
+        left: "50%",
+        transform: "translateX(-50%)",
+        display: "flex",
+        flexDirection: "column",
+        gap: "1rem",
+        animation: "slideUp 0.5s ease-out forwards",
+      }}
+      buttonStyle={{
+        background: "var(--primary)",
+        color: "var(--primary-foreground)",
+        borderRadius: "0.5rem",
+        padding: "0.625rem 1.25rem",
+        fontSize: "0.875rem",
+        fontWeight: 600,
+        border: "none",
+        cursor: "pointer",
+        transition: "all 0.2s ease",
+        boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
+        minWidth: "120px",
+      }}
+      declineButtonStyle={{
+        background: "transparent",
+        color: "var(--muted-foreground)",
+        borderRadius: "0.5rem",
+        padding: "0.625rem 1.25rem",
+        fontSize: "0.875rem",
+        fontWeight: 500,
+        border: "1px solid var(--border)",
+        cursor: "pointer",
+        transition: "all 0.2s ease",
+        minWidth: "120px",
+      }}
+      contentStyle={{
+        flex: 1,
+        margin: 0,
+      }}
+      buttonWrapperClasses="flex flex-row gap-3 justify-end mt-2"
+      enableDeclineButton
+      flipButtons
+      expires={365}
+      overlayStyle={{
+        background: "rgba(0, 0, 0, 0.3)",
+        zIndex: 9998,
+      }}
+      ButtonComponent="button"
+      onDecline={() => {
+        // Función que se ejecuta cuando el usuario rechaza las cookies
+        // Se puede implementar lógica adicional si es necesario
+      }}
+    >
+      <div className="flex flex-col space-y-3">
+        <div className="flex items-center gap-2">
+          <svg 
+            xmlns="http://www.w3.org/2000/svg" 
+            width="24" 
+            height="24" 
+            viewBox="0 0 24 24" 
+            fill="none" 
+            stroke="currentColor" 
+            strokeWidth="2" 
+            strokeLinecap="round" 
+            strokeLinejoin="round"
+            className="text-primary"
+          >
+            <path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5" />
+            <path d="M8.5 8.5v.01" />
+            <path d="M16 15.5v.01" />
+            <path d="M12 12v.01" />
+            <path d="M11 17v.01" />
+            <path d="M7 14v.01" />
+          </svg>
+          <h3 className="font-semibold text-lg">{t("cookies.title")}</h3>
+        </div>
+        <p className="text-sm">
+          {t("cookies.message")}{" "}
+          <Link
+            href={`/${locale}/cookies`}
+            className="text-primary font-medium underline underline-offset-4 hover:text-primary/80"
+          >
+            {t("cookies.learnMore")}
+          </Link>
+        </p>
+      </div>
+    </CookieConsent>
+  );
+}

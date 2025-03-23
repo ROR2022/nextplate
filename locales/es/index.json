@@ -211,7 +211,14 @@
     "settings": "Configuración",
     "profile": "Perfil",
     "logout": "Cerrar sesión",
-    "dashboard": "Panel de control"
+    "dashboard": "Panel de control",
+    "cookies": {
+      "accept": "Aceptar",
+      "decline": "Rechazar",
+      "message": "Este sitio utiliza cookies para mejorar tu experiencia. Al continuar navegando, aceptas nuestra política de cookies.",
+      "learnMore": "Más información",
+      "title": "Política de Cookies"
+    }
   },
   "header": {
     "auth": {

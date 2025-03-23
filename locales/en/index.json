@@ -211,7 +211,14 @@
     "settings": "Settings",
     "profile": "Profile",
     "logout": "Log out",
-    "dashboard": "Dashboard"
+    "dashboard": "Dashboard",
+    "cookies": {
+      "accept": "Accept",
+      "decline": "Decline",
+      "message": "This site uses cookies to improve your experience. By continuing to browse, you accept our cookie policy.",
+      "learnMore": "Learn more",
+      "title": "Cookie Policy"
+    }
   },
   "docs": {
     "meta": {
