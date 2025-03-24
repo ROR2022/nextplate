@@ -57,13 +57,13 @@ export default function SettingsMenu() {
   if (!mounted) {
     return null;
   }
-
+//md:not-sr-only md:ml-1
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant="ghost" size="sm" className="flex items-center gap-1">
           <Settings className="h-4 w-4" />
-          <span className="sr-only md:not-sr-only md:ml-1">{t('settings')}</span>
+          <span className="not-sr-only ml-1 md:sr-only md:ml-0">{t('preferences')}</span>
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="w-56">
