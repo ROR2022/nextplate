@@ -55,7 +55,7 @@ export default async function LocaleLayout({
             
           </div>
 
-          <Footer />
+          <Footer locale={locale} />
         </div>
         <CookieConsentBanner />
       </main>

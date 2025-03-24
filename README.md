@@ -8,31 +8,31 @@
   <p align="center">
     A production-ready template for building scalable, multilingual web applications with authentication, payments, and AI integrations.
     <br />
-    <a href="https://nextplate.demo.com"><strong>View Demo »</strong></a>
+    <a href="https://www.nextplate.lat"><strong>View »</strong></a>
     <br />
     <br />
-    <a href="#getting-started">Quick Start</a>
+    <a href="https://www.nextplate.lat/en/docs/getting-started/quick-start">Quick Start</a>
     ·
-    <a href="#documentation">Documentation</a>
+    <a href="https://www.nextplate.lat/en/docs">Documentation</a>
     ·
-    <a href="#features">Features</a>
+    <a href="https://www.nextplate.lat/en/docs/getting-started">Features</a>
     ·
-    <a href="https://github.com/yourusername/nextplate/issues">Report Bug</a>
+    <a href="https://www.nextplate.lat/en/contact">Report Bug</a>
   </p>
 </div>
 
 <p align="center">
-  <a href="https://github.com/yourusername/nextplate/stargazers">
-    <img src="https://img.shields.io/github/stars/yourusername/nextplate" alt="Stars" />
+  <a href="https://github.com/ROR2022/nextplate/stargazers">
+    <img src="https://img.shields.io/github/stars/ROR2022/nextplate" alt="Stars" />
   </a>
-  <a href="https://github.com/yourusername/nextplate/network/members">
-    <img src="https://img.shields.io/github/forks/yourusername/nextplate" alt="Forks" />
+  <a href="https://github.com/ROR2022/nextplate/network/members">
+    <img src="https://img.shields.io/github/forks/ROR2022/nextplate" alt="Forks" />
   </a>
-  <a href="https://github.com/yourusername/nextplate/issues">
-    <img src="https://img.shields.io/github/issues/yourusername/nextplate" alt="Issues" />
+  <a href="https://github.com/ROR2022/nextplate/issues">
+    <img src="https://img.shields.io/github/issues/ROR2022/nextplate" alt="Issues" />
   </a>
-  <a href="https://github.com/yourusername/nextplate/blob/main/LICENSE">
-    <img src="https://img.shields.io/github/license/yourusername/nextplate" alt="License" />
+  <a href="https://github.com/ROR2022/nextplate/blob/main/LICENSE">
+    <img src="https://img.shields.io/github/license/ROR2022/nextplate" alt="License" />
   </a>
 </p>
 
@@ -142,7 +142,7 @@ Follow these instructions to set up NextPlate locally.
 
 1. Clone the repository
    ```sh
-   git clone https://github.com/yourusername/nextplate.git
+   git clone https://github.com/ROR2022/nextplate.git
    cd nextplate
    ```
 
@@ -292,7 +292,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ## 📬 Contact
 
-Project Link: [https://github.com/yourusername/nextplate](https://github.com/yourusername/nextplate)
+Project Link: [https://github.com/ROR2022/nextplate](https://github.com/ROR2022/nextplate)
 
 ---
 

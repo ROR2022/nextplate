@@ -121,7 +121,9 @@
           "text": "Cookies",
           "url": "/en/cookies"
         }
-      ]
+      ],
+      "contact": "Quick Contact",
+      "contactPage": "Contact Page"
     }
   },
   "auth": {
@@ -308,6 +310,7 @@
     "profile": "Profile",
     "logout": "Log out",
     "dashboard": "Dashboard",
+    "contactPage": "Contact Page",
     "menu": "Menu",
     "openMenu": "Open menu",
     "closeMenu": "Close menu",
@@ -1097,6 +1100,97 @@
         "title": "Synchronization Status",
         "description": "Check the current synchronization status",
         "info": "The status of the last synchronization and statistics about the synchronized data will be displayed here. This functionality will be available in future updates."
+      }
+    },
+    "messages": {
+      "title": "Message Management",
+      "messages": {
+        "title": "Contact Messages",
+        "description": "View and manage messages from the contact form",
+        "empty": "No messages found"
+      },
+      "table": {
+        "status": "Status",
+        "name": "Name",
+        "email": "Email",
+        "date": "Date",
+        "actions": "Actions"
+      },
+      "status": {
+        "read": "Read",
+        "unread": "Unread"
+      },
+      "actions": {
+        "view": "View"
+      },
+      "message": {
+        "title": "Message Details",
+        "from": "From",
+        "content": "Message Content"
+      }
+    }
+  },
+  "contact": {
+    "button": "Contact Us",
+    "title": "Contact Us",
+    "description": "Have questions or need support? Send us a message and we'll get back to you as soon as possible.",
+    "success": "Your message has been sent successfully. We'll be in touch shortly.",
+    "error": {
+      "default": "An error occurred while sending your message. Please try again later."
+    },
+    "form": {
+      "name": {
+        "label": "Name",
+        "placeholder": "Enter your name"
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "Enter your email address"
+      },
+      "message": {
+        "label": "Message",
+        "placeholder": "How can we help you?"
+      },
+      "submit": "Send Message",
+      "submitting": "Sending..."
+    },
+    "page": {
+      "title": "Get in Touch",
+      "description": "We'd love to hear from you. Fill out the form below and we'll get back to you as soon as possible.",
+      "form": {
+        "title": "Send us a Message",
+        "description": "Fill out the form below to send us an email. We typically respond within 24 hours."
+      },
+      "info": {
+        "title": "Contact Information",
+        "description": "Other ways to reach us",
+        "company": {
+          "label": "Company",
+          "value": "NextPlate Inc."
+        },
+        "email": {
+          "label": "Email",
+          "value": "nextplate2025@gmail.com"
+        },
+        "phone": {
+          "label": "Phone",
+          "value": "+52 777 7937 484"
+        },
+        "address": {
+          "label": "Address",
+          "value": "62250, Cuernavaca, Morelos, México"
+        }
+      },
+      "hours": {
+        "title": "Business Hours",
+        "weekdays": {
+          "label": "Monday – Friday",
+          "value": "9:00 AM – 6:00 PM"
+        },
+        "weekends": {
+          "label": "Saturday – Sunday",
+          "value": "Closed"
+        }
       }
     }
   }

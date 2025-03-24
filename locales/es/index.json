@@ -100,15 +100,15 @@
       "links": [
         {
           "text": "Inicio",
-          "url": "/"
+          "url": "/es"
         },
         {
-          "text": "Características",
-          "url": "/#features"
-        },
-        {
-          "text": "Documentación",
+          "text": "Docs",
           "url": "/es/docs"
+        },
+        {
+          "text": "Precios",
+          "url": "/es/pricing"
         },
         {
           "text": "Términos",
@@ -122,7 +122,9 @@
           "text": "Cookies",
           "url": "/es/cookies"
         }
-      ]
+      ],
+      "contact": "Contacto Rápido",
+      "contactPage": "Página de Contacto"
     }
   },
   "auth": {
@@ -308,6 +310,7 @@
     "profile": "Perfil",
     "logout": "Cerrar sesión",
     "dashboard": "Panel de control",
+    "contactPage": "Página de Contacto",
     "menu": "Menú",
     "openMenu": "Abrir menú",
     "closeMenu": "Cerrar menú",
@@ -1208,6 +1211,97 @@
         "title": "Estado de la Sincronización",
         "description": "Verifica el estado actual de la sincronización",
         "info": "Aquí se mostrará el estado de la última sincronización y estadísticas sobre los datos sincronizados. Esta funcionalidad estará disponible en futuras actualizaciones."
+      }
+    },
+    "messages": {
+      "title": "Gestión de Mensajes",
+      "messages": {
+        "title": "Mensajes de Contacto",
+        "description": "Ver y gestionar mensajes del formulario de contacto",
+        "empty": "No se encontraron mensajes"
+      },
+      "table": {
+        "status": "Estado",
+        "name": "Nombre",
+        "email": "Correo",
+        "date": "Fecha",
+        "actions": "Acciones"
+      },
+      "status": {
+        "read": "Leído",
+        "unread": "No leído"
+      },
+      "actions": {
+        "view": "Ver"
+      },
+      "message": {
+        "title": "Detalles del Mensaje",
+        "from": "De",
+        "content": "Contenido del Mensaje"
+      }
+    }
+  },
+  "contact": {
+    "button": "Contáctanos",
+    "title": "Contáctanos",
+    "description": "¿Tienes preguntas o necesitas ayuda? Envíanos un mensaje y te responderemos lo antes posible.",
+    "success": "Tu mensaje ha sido enviado con éxito. Nos pondremos en contacto pronto.",
+    "error": {
+      "default": "Ha ocurrido un error al enviar tu mensaje. Por favor, inténtalo de nuevo más tarde."
+    },
+    "form": {
+      "name": {
+        "label": "Nombre",
+        "placeholder": "Ingresa tu nombre"
+      },
+      "email": {
+        "label": "Correo electrónico",
+        "placeholder": "Ingresa tu correo electrónico"
+      },
+      "message": {
+        "label": "Mensaje",
+        "placeholder": "¿Cómo podemos ayudarte?"
+      },
+      "submit": "Enviar mensaje",
+      "submitting": "Enviando..."
+    },
+    "page": {
+      "title": "Ponte en Contacto",
+      "description": "Nos encantaría saber de ti. Completa el formulario a continuación y nos pondremos en contacto contigo lo antes posible.",
+      "form": {
+        "title": "Envíanos un Mensaje",
+        "description": "Completa el formulario para enviarnos un correo. Normalmente respondemos en 24 horas."
+      },
+      "info": {
+        "title": "Información de Contacto",
+        "description": "Otras formas de contactarnos",
+        "company": {
+          "label": "Empresa",
+          "value": "NextPlate Inc."
+        },
+        "email": {
+          "label": "Correo",
+          "value": "nextplate2025@gmail.com"
+        },
+        "phone": {
+          "label": "Teléfono",
+          "value": "+52 777 7937 484"
+        },
+        "address": {
+          "label": "Dirección",
+          "value": "62250, Cuernavaca, Morelos, México"
+        }
+      },
+      "hours": {
+        "title": "Horario de Atención",
+        "weekdays": {
+          "label": "Lunes – Viernes",
+          "value": "9:00 AM – 6:00 PM"
+        },
+        "weekends": {
+          "label": "Sábado – Domingo",
+          "value": "Cerrado"
+        }
       }
     }
   }

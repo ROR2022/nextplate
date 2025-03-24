@@ -3,6 +3,7 @@
 import { useTranslations } from 'next-intl';
 import { ThemeSwitcher } from "@/components/theme-switcher";
 import LanguageSelectorNextIntl from "@/components/language-selector-next-intl";
+import { ContactForm } from "@/components/contact-form";
 import Link from "next/link";
 
 // Tipo para los enlaces del footer
@@ -69,6 +70,11 @@ export default function Footer() {
                 {link.text}
               </Link>
             ))}
+            
+            {/* Formulario de contacto (diálogo) */}
+            <ContactForm buttonLabel={t('contact')} />
+            
+            
           </nav>
 
           {/* Selectores de idioma y tema */}

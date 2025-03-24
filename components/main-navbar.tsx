@@ -103,6 +103,9 @@ export default function MainNavbar({ locale }: MainNavbarProps) {
                   <Link href={`/${locale}/dashboard`}>{t("dashboard")}</Link>
                 </DropdownMenuItem>
               )}
+              <DropdownMenuItem asChild>
+                <Link href={`/${locale}/contact`}>{t("contactPage")}</Link>
+              </DropdownMenuItem>
               <DropdownMenuSeparator />
               <DropdownMenuItem asChild>
                 <SettingsMenu />
@@ -152,11 +155,23 @@ export default function MainNavbar({ locale }: MainNavbarProps) {
                   </SheetClose>
                   {userStatus.isLoggedIn && (
                     <SheetClose asChild>
-                      <Link href={`/${locale}/dashboard`} className="flex py-2 text-sm hover:underline">
+                      <Link
+                        href={`/${locale}/dashboard`}
+                        className="flex py-2 text-sm hover:underline"
+                      >
                         {t("dashboard")}
                       </Link>
                     </SheetClose>
                   )}
+                  {/* Enlace a la página de contacto */}
+                  <SheetClose asChild>
+                  <Link
+                    href={`/${locale}/contact`}
+                    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    {t("contactPage")}
+                  </Link>
+                  </SheetClose>
                 </div>
 
                 <div className="border-t pt-4">
