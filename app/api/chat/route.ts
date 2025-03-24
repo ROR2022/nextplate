@@ -105,7 +105,12 @@ async function getOpenAIResponse(message: string, locale: string) {
 /**
  * Formatea las sugerencias de documentación en un mensaje amigable
  */
-function formatDocSuggestions(suggestions: any[], locale: string): string {
+function formatDocSuggestions(suggestions: {
+  title: string;
+  section: string;
+  snippet: string;
+  path: string;
+}[], locale: string): string {
   if (!suggestions || suggestions.length === 0) {
     return locale === 'en' 
       ? "I couldn't find specific information about that in our documentation."

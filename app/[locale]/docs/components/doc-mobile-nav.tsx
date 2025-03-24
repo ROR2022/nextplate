@@ -143,10 +143,10 @@ export default function DocMobileNav({ locale }: DocMobileNavProps) {
 
   // Actualizar categorías expandidas cuando cambia la ruta
   useEffect(() => {
-    if (currentSection) {
+    if (pathname && currentSection) {
       setExpandedCategories(prev => {
         const newExpanded = { ...prev };
-
+        
         for (const category of categories) {
           const categoryPath = category.links[0].href.split("/")[1];
           if (currentSection.startsWith(categoryPath) && !prev[category.id]) {
@@ -157,7 +157,7 @@ export default function DocMobileNav({ locale }: DocMobileNavProps) {
         return newExpanded;
       });
     }
-  }, [pathname, currentSection]);
+  }, [pathname, currentSection, categories]);
 
   const isActive = (path: string) => {
     return pathname === `/${locale}/docs${path}`;

@@ -72,7 +72,7 @@ export async function getDocContent(locale: string, section: string, docPath: st
       const translations = JSON.parse(translationContent);
 
       // Función recursiva para encontrar una clave de traducción anidada
-      const getNestedTranslation = (obj: any, key: string): string => {
+      const getNestedTranslation = (obj: Record<string, any>, key: string): string => {
         const parts = key.split('.');
         let current = obj;
         
@@ -185,7 +185,7 @@ export async function indexAllDocs(locale: string): Promise<DocContent[]> {
       }
       
       // Buscar traducción de forma recursiva
-      const getPropByPath = (obj: any, path: string): string => {
+      const getPropByPath = (obj: Record<string, any>, path: string): string => {
         const parts = path.split('.');
         let current = obj;
         
