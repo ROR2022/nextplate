@@ -12,37 +12,11 @@ const supabase = createClient(
   process.env.SUPABASE_SERVICE_ROLE_KEY! // 🔒 solo usar en backend/server
 );
 
-/* const intlMiddleware = createMiddleware({
-  locales,
-  defaultLocale: 'es',
-  localeDetection: false
-}); */
-
 export async function middleware(request: NextRequest) {
   try {
     //esta seccion es para bloquear rutas sospechosas
     const ip = request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? "unknown";
     const path = request.nextUrl.pathname;
-    const userAgent = request.headers.get("user-agent") || "unknown";
-
-    // Cargar paths bloqueados desde Supabase
-    const { data: blockedPathsData, error: blockedPathsError } = await supabase
-      .from("blocked_paths")
-      .select("path");
-      if (blockedPathsError) {
-        console.error("Error fetching blocked paths:", blockedPathsError);
-        return NextResponse.error();
-      }
-
-    const blockedPaths = blockedPathsData?.map(row => row.path) ?? [];
-
-    // 🧱 Si accede a una ruta sospechosa, registramos y bloqueamos
-    if (blockedPaths.some(blockedPath => path.startsWith(blockedPath))) {
-      await supabase.from("blocked_ips").upsert({ ip, user_agent: userAgent }).eq("ip", ip);
-
-      console.warn(`🚨 Path blocked → ${path} from IP: ${ip}`);
-      return new NextResponse("Forbidden", { status: 403 });
-    }
 
     // 🔍 Verifica si esta IP ya está en la lista
     const { data: blocked } = await supabase
@@ -55,6 +29,62 @@ export async function middleware(request: NextRequest) {
       console.warn(`⛔ Blocked IP ${ip} tried to access ${path}`);
       return new NextResponse("Access denied", { status: 403 });
     }
+
+    
+    const userAgent = request.headers.get("user-agent") || "unknown";
+    const suspiciousKeywords = [
+      "wp-",
+      "wpadmin",
+      "xmlrpc",
+      "php",
+      ".ini",
+      ".bak",
+      ".env",
+      "config",
+      "setup",
+    ];
+
+    //detectar si el path es sospechoso
+    const isSuspicious = suspiciousKeywords.some(keyword => path.toLowerCase().includes(keyword));
+
+    // Cargar paths bloqueados desde Supabase
+    const { data: blockedPathsData, error: blockedPathsError } = await supabase
+      .from("blocked_paths")
+      .select("path");
+    if (blockedPathsError) {
+      console.error("Error fetching blocked paths:", blockedPathsError);
+      return NextResponse.error();
+    }
+
+    const blockedPaths = blockedPathsData?.map(row => row.path) ?? [];
+
+    // Si no está en la tabla y parece sospechosa, la registramos
+    if (!blockedPaths.some(p => path.startsWith(p)) && isSuspicious) {
+      // Insertamos la ruta en la tabla blocked_paths
+      await supabase
+        .from("blocked_paths")
+        .upsert({
+          path,
+          description: "Auto-detected suspicious path",
+        })
+        .eq("path", path);
+
+      // También bloqueamos la IP como de costumbre
+      await supabase.from("blocked_ips").upsert({ ip, user_agent: userAgent }).eq("ip", ip);
+
+      console.warn(`🚨 AUTO-BLOCKED unknown path: ${path} from IP: ${ip}`);
+      return new NextResponse("Forbidden", { status: 403 });
+    }
+
+    // 🧱 Si accede a una ruta sospechosa, registramos y bloqueamos
+    if (blockedPaths.some(blockedPath => path.startsWith(blockedPath))) {
+      await supabase.from("blocked_ips").upsert({ ip, user_agent: userAgent }).eq("ip", ip);
+
+      console.warn(`🚨 Path blocked → ${path} from IP: ${ip}`);
+      return new NextResponse("Forbidden", { status: 403 });
+    }
+
+    
 
     // Handle root path
     if (request.nextUrl.pathname === "/") {
@@ -111,68 +141,3 @@ export const config = {
     "/(es|en)/:path*",
   ],
 };
-
-/* 
-import { NextRequest, NextResponse } from "next/server";
-import { updateSession } from "@/utils/supabase/middleware";
-import createMiddleware from 'next-intl/middleware';
-import { locales } from './i18n';
-
-// Middleware de next-intl para internacionalización
-const intlMiddleware = createMiddleware({
-  // Los idiomas soportados definidos en i18n.ts
-  locales,
-  // El idioma predeterminado cuando no se especifica
-  defaultLocale: 'es',
-  // Usar la preferencia del navegador como respaldo
-  localeDetection: true
-});
-
-export async function middleware(request: NextRequest) {
-  // Primero actualizar la sesión de Supabase
-  const supabaseResponse = await updateSession(request);
-  
-  // Verificar si la ruta es la raíz exacta
-  if (request.nextUrl.pathname === '/') {
-    // Permitir que la redirección en page.tsx funcione
-    return supabaseResponse || NextResponse.next();
-  }
-  
-  // Luego aplicar el middleware de next-intl
-  // Necesitamos clonar la solicitud porque ya ha sido consumida por updateSession
-  const intlResponse = await intlMiddleware(
-    new NextRequest(request.url, {
-      headers: request.headers,
-      method: request.method,
-    })
-  );
-  
-  // Combinar las cabeceras de ambas respuestas
-  const response = supabaseResponse || intlResponse;
-  
-  // Si hay cabeceras de Supabase, mantenerlas
-  if (supabaseResponse && intlResponse) {
-    intlResponse.headers.forEach((value, key) => {
-      response.headers.set(key, value);
-    });
-  }
-  
-  return response;
-}
-
-export const config = {
-  matcher: [
-    
-    "/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)",
-  ],
-};
- */
-
-/*
- * Match all request paths except:
- * - _next/static (static files)
- * - _next/image (image optimization files)
- * - favicon.ico (favicon file)
- * - images - .svg, .png, .jpg, .jpeg, .gif, .webp
- * Feel free to modify this pattern to include more paths.
- */
