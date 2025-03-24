@@ -40,7 +40,6 @@ export async function middleware(request: NextRequest) {
       ".ini",
       ".bak",
       ".env",
-      "config",
       "setup",
     ];
 
