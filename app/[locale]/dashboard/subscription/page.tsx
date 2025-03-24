@@ -123,7 +123,7 @@ export default async function SubscriptionPage({
                   {t('help.description')}
                 </p>
                 <a 
-                  href={`/${locale}/docs/payments`}
+                  href={`/${locale}/docs/api/payments`}
                   className="text-sm text-blue-600 hover:text-blue-800 mt-2 inline-block"
                 >
                   {t('help.learnMore')}
