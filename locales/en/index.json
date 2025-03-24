@@ -186,7 +186,12 @@
       "inputPlaceholder": "Type your message...",
       "error": "Error processing your request",
       "connectionError": "Connection error with the server",
-      "apiKeyMissing": "The OpenAI API key is not configured on the server"
+      "apiKeyMissing": "OpenAI API key is not configured on the server",
+      "useAI": "Use AI for detailed answer",
+      "usingAI": "Now I'll answer using AI...",
+      "foundInDocs": "I found relevant information in our documentation:",
+      "readMore": "Read more",
+      "noDocsFound": "I couldn't find specific information about that in our documentation."
     }
   },
   "subscription": {

@@ -93,6 +93,11 @@ export default function MainNavbar({ locale }: MainNavbarProps) {
               <DropdownMenuItem asChild>
                 <Link href={`/${locale}/pricing`}>{t('pricing')}</Link>
               </DropdownMenuItem>
+              {userStatus.isLoggedIn && (
+                <DropdownMenuItem asChild>
+                  <Link href={`/${locale}/dashboard`}>{t('dashboard')}</Link>
+                </DropdownMenuItem>
+              )}
             </DropdownMenuContent>
           </DropdownMenu>
           
