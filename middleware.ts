@@ -2,8 +2,15 @@ import { NextRequest, NextResponse } from "next/server";
 import { updateSession } from "@/utils/supabase/middleware";
 import createMiddleware from "next-intl/middleware";
 import { routing } from "./i18n";
+import { createClient } from "@supabase/supabase-js";
 
 const intlMiddleware = createMiddleware(routing);
+
+// Supabase backend client
+const supabase = createClient(
+  process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  process.env.SUPABASE_SERVICE_ROLE_KEY! // 🔒 solo usar en backend/server
+);
 
 /* const intlMiddleware = createMiddleware({
   locales,
@@ -14,7 +21,9 @@ const intlMiddleware = createMiddleware(routing);
 export async function middleware(request: NextRequest) {
   try {
     //esta seccion es para bloquear rutas sospechosas
+    const ip = request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? "unknown";
     const path = request.nextUrl.pathname;
+    const userAgent = request.headers.get("user-agent") || "unknown";
 
     const blockedPaths = [
       "/wp-admin",
@@ -25,8 +34,24 @@ export async function middleware(request: NextRequest) {
       "/wp-includes",
     ];
 
-    if (blockedPaths.some(bp => path.startsWith(bp))) {
-      return new NextResponse("Not allowed", { status: 403 });
+    // 🧱 Si accede a una ruta sospechosa, registramos y bloqueamos
+    if (blockedPaths.some(blockedPath => path.startsWith(blockedPath))) {
+      await supabase.from("blocked_ips").upsert({ ip, user_agent: userAgent }).eq("ip", ip);
+
+      console.warn(`🚨 Path blocked → ${path} from IP: ${ip}`);
+      return new NextResponse("Forbidden", { status: 403 });
+    }
+
+    // 🔍 Verifica si esta IP ya está en la lista
+    const { data: blocked } = await supabase
+      .from("blocked_ips")
+      .select("ip")
+      .eq("ip", ip)
+      .maybeSingle();
+
+    if (blocked) {
+      console.warn(`⛔ Blocked IP ${ip} tried to access ${path}`);
+      return new NextResponse("Access denied", { status: 403 });
     }
 
     // Handle root path
