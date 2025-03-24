@@ -63,7 +63,7 @@ export default function SettingsMenu() {
       <DropdownMenuTrigger asChild>
         <Button variant="ghost" size="sm" className="flex items-center gap-1">
           <Settings className="h-4 w-4" />
-          <span className="not-sr-only ml-1 md:sr-only md:ml-0">{t('preferences')}</span>
+          <span className="not-sr-only ml-1">{t('preferences')}</span>
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="w-56">
