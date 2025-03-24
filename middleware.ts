@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { updateSession } from "@/utils/supabase/middleware";
-import createMiddleware from 'next-intl/middleware';
-import { routing } from './i18n';
+import createMiddleware from "next-intl/middleware";
+import { routing } from "./i18n";
 
 const intlMiddleware = createMiddleware(routing);
 
@@ -16,42 +16,49 @@ export async function middleware(request: NextRequest) {
     //esta seccion es para bloquear rutas sospechosas
     const path = request.nextUrl.pathname;
 
-    const blockedPaths = ['/wp-admin', '/wordpress', '/wp-login.php'];
-  
+    const blockedPaths = [
+      "/wp-admin",
+      "/wordpress",
+      "/wp-login.php",
+      "/wp-content",
+      "/xmlrpc.php",
+      "/wp-includes",
+    ];
+
     if (blockedPaths.some(bp => path.startsWith(bp))) {
-      return new NextResponse('Not allowed', { status: 403 });
+      return new NextResponse("Not allowed", { status: 403 });
     }
 
     // Handle root path
-    if (request.nextUrl.pathname === '/') {
-      return NextResponse.redirect(new URL('/es', request.url));
+    if (request.nextUrl.pathname === "/") {
+      return NextResponse.redirect(new URL("/es", request.url));
     }
 
     // Create a new NextRequest instead of cloning
     const supabaseResponse = await updateSession(request);
     // Create a new request with only valid RequestInit properties
-const newRequest = new NextRequest(request.url, {
-  headers: request.headers,
-  method: request.method,
-  // Remove invalid properties from RequestInit
-  body: request.body,
-  cache: request.cache,
-  credentials: request.credentials,
-  integrity: request.integrity,
-  keepalive: request.keepalive,
-  mode: request.mode,
-  redirect: request.redirect,
-  referrer: request.referrer,
-  referrerPolicy: request.referrerPolicy,
-  signal: request.signal,
-});
+    const newRequest = new NextRequest(request.url, {
+      headers: request.headers,
+      method: request.method,
+      // Remove invalid properties from RequestInit
+      body: request.body,
+      cache: request.cache,
+      credentials: request.credentials,
+      integrity: request.integrity,
+      keepalive: request.keepalive,
+      mode: request.mode,
+      redirect: request.redirect,
+      referrer: request.referrer,
+      referrerPolicy: request.referrerPolicy,
+      signal: request.signal,
+    });
 
-// Copy additional properties after creation
-Object.defineProperty(newRequest, 'nextUrl', { value: request.nextUrl });
-Object.defineProperty(newRequest, 'cookies', { value: request.cookies });
-//Object.defineProperty(newRequest, 'geo', { value: request.geo });
+    // Copy additional properties after creation
+    Object.defineProperty(newRequest, "nextUrl", { value: request.nextUrl });
+    Object.defineProperty(newRequest, "cookies", { value: request.cookies });
+    //Object.defineProperty(newRequest, 'geo', { value: request.geo });
 
-const intlResponse = await intlMiddleware(newRequest);
+    const intlResponse = await intlMiddleware(newRequest);
 
     if (!supabaseResponse) {
       return intlResponse;
@@ -64,7 +71,7 @@ const intlResponse = await intlMiddleware(newRequest);
 
     return supabaseResponse;
   } catch (error) {
-    console.error('Middleware error:', error);
+    console.error("Middleware error:", error);
     return NextResponse.error();
   }
 }
@@ -72,10 +79,10 @@ const intlResponse = await intlMiddleware(newRequest);
 export const config = {
   matcher: [
     // Match all paths except static files and API routes
-    '/((?!_next|api|favicon.ico).*)',
-    '/',
-    '/(es|en)/:path*'
-  ]
+    "/((?!_next|api|favicon.ico).*)",
+    "/",
+    "/(es|en)/:path*",
+  ],
 };
 
 /* 
@@ -135,10 +142,10 @@ export const config = {
  */
 
 /*
-     * Match all request paths except:
-     * - _next/static (static files)
-     * - _next/image (image optimization files)
-     * - favicon.ico (favicon file)
-     * - images - .svg, .png, .jpg, .jpeg, .gif, .webp
-     * Feel free to modify this pattern to include more paths.
-     */
+ * Match all request paths except:
+ * - _next/static (static files)
+ * - _next/image (image optimization files)
+ * - favicon.ico (favicon file)
+ * - images - .svg, .png, .jpg, .jpeg, .gif, .webp
+ * Feel free to modify this pattern to include more paths.
+ */
