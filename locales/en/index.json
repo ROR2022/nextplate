@@ -178,6 +178,15 @@
       "description": "Manage your subscription plan",
       "message": "View and manage your current subscription plan",
       "manage": "Manage Subscription"
+    },
+    "chatbot": {
+      "title": "AI Assistant",
+      "description": "Ask questions about NextPlate",
+      "initialMessage": "Hello! I'm the NextPlate assistant. How can I help you today?",
+      "inputPlaceholder": "Type your message...",
+      "error": "Error processing your request",
+      "connectionError": "Connection error with the server",
+      "apiKeyMissing": "The OpenAI API key is not configured on the server"
     }
   },
   "subscription": {
@@ -1040,6 +1049,20 @@
           "title": "Implementation in NextPlate",
           "description": "How SOLID principles are applied in NextPlate's architecture and code organization."
         }
+      }
+    },
+    "search": {
+      "placeholder": "Search documentation...",
+      "clear": "Clear search",
+      "result": "result",
+      "results": "results",
+      "noResults": "No results found. Try a different search term.",
+      "sections": {
+        "getting-started": "Getting Started",
+        "architecture": "Architecture",
+        "best-practices": "Best Practices",
+        "configuration": "Configuration",
+        "development": "Development"
       }
     }
   },

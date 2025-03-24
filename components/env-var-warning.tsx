@@ -1,33 +1,49 @@
-import Link from "next/link";
-import { Badge } from "./ui/badge";
-import { Button } from "./ui/button";
+"use client";
 
-export function EnvVarWarning() {
+import { useState, useEffect } from "react";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { AlertTriangleIcon } from "lucide-react";
+import { useTranslations } from "next-intl";
+
+interface EnvVarWarningProps {
+  envVars?: string[];
+  showTitle?: boolean;
+}
+
+export default function EnvVarWarning({ 
+  envVars = ['NEXT_PUBLIC_SUPABASE_URL', 'NEXT_PUBLIC_SUPABASE_ANON_KEY', 'STRIPE_SECRET_KEY', 'OPENAI_API_KEY'], 
+  showTitle = true 
+}: EnvVarWarningProps) {
+  const [missingVars, setMissingVars] = useState<string[]>([]);
+  const t = useTranslations('common');
+
+  useEffect(() => {
+    // Verificar si las variables de entorno están configuradas
+    const missing = envVars.filter(
+      (envVar) => 
+        envVar.startsWith('NEXT_PUBLIC_') && 
+        !process.env[envVar]
+    );
+    
+    setMissingVars(missing);
+  }, [envVars]);
+
+  if (missingVars.length === 0) {
+    return null;
+  }
+
   return (
-    <div className="flex gap-4 items-center">
-      <Badge variant={"outline"} className="font-normal">
-        Supabase environment variables required
-      </Badge>
-      <div className="flex gap-2">
-        <Button
-          asChild
-          size="sm"
-          variant={"outline"}
-          disabled
-          className="opacity-75 cursor-none pointer-events-none"
-        >
-          <Link href="/sign-in">Sign in</Link>
-        </Button>
-        <Button
-          asChild
-          size="sm"
-          variant={"default"}
-          disabled
-          className="opacity-75 cursor-none pointer-events-none"
-        >
-          <Link href="/sign-up">Sign up</Link>
-        </Button>
-      </div>
-    </div>
+    <Alert variant="destructive" className="mb-4">
+      <AlertTriangleIcon className="h-4 w-4" />
+      {showTitle && <AlertTitle>{t('error.envVarTitle')}</AlertTitle>}
+      <AlertDescription>
+        {t('error.envVarDescription')}
+        <ul className="list-disc pl-5 mt-2">
+          {missingVars.map((envVar) => (
+            <li key={envVar}>{envVar}</li>
+          ))}
+        </ul>
+      </AlertDescription>
+    </Alert>
   );
 }

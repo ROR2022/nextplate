@@ -178,6 +178,15 @@
       "description": "Gestiona tu plan de suscripción",
       "message": "Ver y gestionar tu plan de suscripción actual",
       "manage": "Gestionar Suscripción"
+    },
+    "chatbot": {
+      "title": "Asistente IA",
+      "description": "Haz preguntas sobre NextPlate",
+      "initialMessage": "¡Hola! Soy el asistente de NextPlate. ¿En qué puedo ayudarte hoy?",
+      "inputPlaceholder": "Escribe tu mensaje...",
+      "error": "Error al procesar tu solicitud",
+      "connectionError": "Error de conexión con el servidor",
+      "apiKeyMissing": "La API key de OpenAI no está configurada en el servidor"
     }
   },
   "subscription": {
@@ -1150,6 +1159,20 @@
         "intro": {
           "title": "Introducción a los Componentes de Visualización de Datos"
         }
+      }
+    },
+    "search": {
+      "placeholder": "Buscar en la documentación...",
+      "clear": "Limpiar búsqueda",
+      "result": "resultado",
+      "results": "resultados",
+      "noResults": "No se encontraron resultados. Intenta con un término diferente.",
+      "sections": {
+        "getting-started": "Primeros Pasos",
+        "architecture": "Arquitectura",
+        "best-practices": "Mejores Prácticas",
+        "configuration": "Configuración",
+        "development": "Desarrollo"
       }
     }
   },

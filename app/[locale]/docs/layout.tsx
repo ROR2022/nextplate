@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 import DocSidebar from "./components/doc-sidebar";
+import DocSearch from "./components/doc-search";
 
 interface DocsLayoutProps {
   children: ReactNode;
@@ -15,6 +16,9 @@ export default async function DocsLayout({
 
   return (
     <div className="container py-10">
+      <div className="mb-8 flex justify-center md:justify-start">
+        <DocSearch locale={locale} />
+      </div>
       <div className="flex flex-col md:flex-row gap-10">
         <DocSidebar locale={locale} />
         <div className="flex-1">

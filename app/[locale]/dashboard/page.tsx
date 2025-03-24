@@ -4,6 +4,7 @@ import { redirect } from "next/navigation";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../../../components/ui/card";
 import Link from "next/link";
 import AdminNav from "@/components/admin/admin-nav";
+import { Chatbot } from "@/components/chatbot";
 
 type PageProps = {
   params: Promise<{ locale: string }>;
@@ -32,13 +33,17 @@ export default async function DashboardPage({
   const isAdmin = profile?.role === 'admin';
   
   return (
-    <div className="container mx-auto py-10">
+    <div className="mx-auto py-10 max-w-screen-2xl"
+    style={{width: '100%'}}
+    >
       <h1 className="text-3xl font-bold mb-6">{t('title')}</h1>
       <p className="text-xl mb-8">{t('welcome')}</p>
       
       {isAdmin && <AdminNav locale={locale} />}
       
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+      <div id="stats" className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10"
+      style={{display: 'none'}}
+      >
         <Card>
           <CardHeader>
             <CardTitle>{t('stats.title')}</CardTitle>
@@ -70,7 +75,8 @@ export default async function DashboardPage({
         </Card>
       </div>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+      <div className="flex flex-col md:flex-row md:flex-wrap md:w-full gap-6 mb-10">
+        <span style={{display: 'none'}}>
         <Card>
           <CardHeader>
             <CardTitle>{t('recentActivity.title')}</CardTitle>
@@ -79,6 +85,7 @@ export default async function DashboardPage({
             <p className="text-gray-500">{t('recentActivity.empty')}</p>
           </CardContent>
         </Card>
+        </span>
         
         <Card>
           <CardHeader>
@@ -95,6 +102,10 @@ export default async function DashboardPage({
             </Link>
           </CardContent>
         </Card>
+      </div>
+
+      <div className="mb-10">
+        <Chatbot />
       </div>
     </div>
   );
