@@ -14,7 +14,7 @@ export default function DocContent({
   children,
 }: DocContentProps) {
   return (
-    <div className="w-full" style={{maxWidth: '80vw'}}>
+    <div className="w-full" style={{maxWidth: '80vw !important'}}>
       <div className="space-y-2 mb-6 md:mb-8">
         <h1 className="scroll-m-20 text-3xl md:text-4xl font-bold tracking-tight">{title}</h1>
         {description && (

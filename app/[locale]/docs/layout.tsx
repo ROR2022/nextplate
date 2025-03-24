@@ -34,7 +34,7 @@ export default async function DocsLayout({
             </div>
           </div>
           
-          <main className="overflow-x-hidden">
+          <main className="overflow-x-hidden" style={{ maxWidth: "80vw" }}>
             {children}
           </main>
         </div>

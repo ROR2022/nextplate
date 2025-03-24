@@ -5,16 +5,16 @@ import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
-import { Menu, ChevronDown, ChevronRight, Home } from "lucide-react";
+import { ChevronDown, ChevronRight, Home } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { 
-  Sheet, 
-  SheetContent, 
-  SheetTrigger, 
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
   SheetClose,
   SheetHeader,
   SheetTitle,
-  SheetDescription
+  SheetDescription,
 } from "@/components/ui/sheet";
 import { Badge } from "@/components/ui/badge";
 
@@ -22,13 +22,32 @@ interface DocMobileNavProps {
   locale: string;
 }
 
+const MoreIcon = () => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      strokeWidth={1.5}
+      stroke="currentColor"
+      className="size-6"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M12 6.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 12.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 18.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5Z"
+      />
+    </svg>
+  );
+};
+
 export default function DocMobileNav({ locale }: DocMobileNavProps) {
   const t = useTranslations("docs");
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
-  
+
   // Determinar la sección actual basada en la URL
-  const currentSection = pathname.split(`/${locale}/docs/`)[1]?.split('/')[0] || '';
+  const currentSection = pathname.split(`/${locale}/docs/`)[1]?.split("/")[0] || "";
   const categories = [
     {
       id: "gettingStarted",
@@ -101,24 +120,24 @@ export default function DocMobileNav({ locale }: DocMobileNavProps) {
       ],
     },
   ];
-  
+
   // Inicializar las categorías expandidas incluyendo la sección actual
   const [expandedCategories, setExpandedCategories] = useState<Record<string, boolean>>(() => {
-    const expanded: Record<string, boolean> = { 
-      "gettingStarted": true 
+    const expanded: Record<string, boolean> = {
+      gettingStarted: true,
     };
-    
+
     if (currentSection) {
       // Expandir la categoría actual
       for (const category of categories) {
-        const categoryPath = category.links[0].href.split('/')[1];
+        const categoryPath = category.links[0].href.split("/")[1];
         if (currentSection.startsWith(categoryPath)) {
           expanded[category.id] = true;
           break;
         }
       }
     }
-    
+
     return expanded;
   });
 
@@ -126,15 +145,15 @@ export default function DocMobileNav({ locale }: DocMobileNavProps) {
   useEffect(() => {
     if (currentSection) {
       setExpandedCategories(prev => {
-        const newExpanded = {...prev};
-        
+        const newExpanded = { ...prev };
+
         for (const category of categories) {
-          const categoryPath = category.links[0].href.split('/')[1];
+          const categoryPath = category.links[0].href.split("/")[1];
           if (currentSection.startsWith(categoryPath) && !prev[category.id]) {
             newExpanded[category.id] = true;
           }
         }
-        
+
         return newExpanded;
       });
     }
@@ -151,11 +170,9 @@ export default function DocMobileNav({ locale }: DocMobileNavProps) {
   const toggleCategory = (category: string) => {
     setExpandedCategories(prev => ({
       ...prev,
-      [category]: !prev[category]
+      [category]: !prev[category],
     }));
   };
-
-  
 
   // Encontrar la categoría y enlace activo para mostrar en el botón
   const getCurrentPageInfo = () => {
@@ -164,7 +181,7 @@ export default function DocMobileNav({ locale }: DocMobileNavProps) {
         if (isActive(link.href)) {
           return {
             category: t(`sidebar.${category.id}`),
-            page: link.label
+            page: link.label,
           };
         }
       }
@@ -179,9 +196,9 @@ export default function DocMobileNav({ locale }: DocMobileNavProps) {
       <div className="flex items-center gap-2">
         {/* Botón de inicio para volver a la página principal de docs */}
         <Link href={`/${locale}/docs`} className="hidden items-center">
-          <Button 
-            variant="ghost" 
-            size="icon" 
+          <Button
+            variant="ghost"
+            size="icon"
             className={cn(
               "h-9 w-9 rounded-full",
               pathname === `/${locale}/docs` ? "bg-primary/10" : ""
@@ -191,11 +208,15 @@ export default function DocMobileNav({ locale }: DocMobileNavProps) {
             <span className="sr-only">{t("home.title")}</span>
           </Button>
         </Link>
-        
+
         {/* Menú principal */}
         <Sheet open={open} onOpenChange={setOpen}>
           <SheetTrigger asChild>
-            <Button variant="outline" size="sm" className="h-9 flex gap-2 items-center text-left pl-3 pr-2">
+            <Button
+              variant="outline"
+              size="sm"
+              className=""
+            >
               <div className="hidden truncate max-w-[120px]">
                 {currentPageInfo ? (
                   <span className="text-sm truncate">{currentPageInfo.page}</span>
@@ -203,26 +224,33 @@ export default function DocMobileNav({ locale }: DocMobileNavProps) {
                   <span className="text-sm">{t("sidebar.menu")}</span>
                 )}
               </div>
-              <Menu className="h-4 w-4 shrink-0" />
+              <span className="h-4 w-4 shrink-0 mr-2 mb-1">
+                <MoreIcon />
+              </span>
+              
             </Button>
           </SheetTrigger>
-          <SheetContent side="left" className="w-[85%] max-w-[320px] sm:max-w-sm p-0">
+          <SheetContent side="left" className="w-[85%] max-w-[320px] sm:max-w-sm p-0 overflow-auto">
             <SheetHeader className="px-4 py-4 border-b sticky top-0 bg-background z-10">
               <SheetTitle className="text-left">{t("home.title")}</SheetTitle>
               <SheetDescription className="text-left">
-                {t("sidebar.navigationDescription", {defaultValue: "Navega por la documentación"})}
+                {t("sidebar.navigationDescription", {
+                  defaultValue: "Navega por la documentación",
+                })}
               </SheetDescription>
             </SheetHeader>
-            
-            <div className="overflow-y-auto max-h-[calc(100vh-4rem)] p-4">
+
+            <div className="overflow-y-auto p-4">
               {/* Enlace a la página principal de documentación */}
               <div className="mb-4">
                 <SheetClose asChild>
-                  <Link 
+                  <Link
                     href={`/${locale}/docs`}
                     className={cn(
                       "flex items-center py-2 px-3 rounded-md",
-                      pathname === `/${locale}/docs` ? "bg-primary/10 font-medium" : "hover:bg-muted"
+                      pathname === `/${locale}/docs`
+                        ? "bg-primary/10 font-medium"
+                        : "hover:bg-muted"
                     )}
                   >
                     <Home className="h-4 w-4 mr-2" />
@@ -230,23 +258,23 @@ export default function DocMobileNav({ locale }: DocMobileNavProps) {
                   </Link>
                 </SheetClose>
               </div>
-              
+
               <div className="space-y-3">
-                {categories.map((category) => {
+                {categories.map(category => {
                   const isExpanded = expandedCategories[category.id];
                   const isCategoryActive = category.links.some(link => isActive(link.href));
                   const isCategoryInPath = category.links.some(link => isInSection(link.href));
-                  const categoryPath = category.links[0].href.split('/')[1];
+                  const categoryPath = category.links[0].href.split("/")[1];
                   const isCurrentCategory = currentSection.startsWith(categoryPath);
-                  
+
                   return (
                     <div key={category.id} className="space-y-2">
-                      <button 
+                      <button
                         className={cn(
                           "flex items-center w-full justify-between px-3 py-2 text-sm font-medium rounded-md",
-                          (isCategoryActive || isCategoryInPath) ? 
-                            "bg-primary/10 text-foreground" : 
-                            "text-foreground hover:bg-muted transition-colors"
+                          isCategoryActive || isCategoryInPath
+                            ? "bg-primary/10 text-foreground"
+                            : "text-foreground hover:bg-muted transition-colors"
                         )}
                         onClick={() => toggleCategory(category.id)}
                       >
@@ -262,12 +290,12 @@ export default function DocMobileNav({ locale }: DocMobileNavProps) {
                           <ChevronRight className="h-4 w-4 shrink-0" />
                         )}
                       </button>
-                      
+
                       {isExpanded && (
                         <ul className="space-y-1 ml-4 pl-2 border-l">
                           {category.links.map((link, j) => {
                             const isLinkActive = isActive(link.href);
-                            
+
                             return (
                               <li key={j}>
                                 <SheetClose asChild>
@@ -275,9 +303,9 @@ export default function DocMobileNav({ locale }: DocMobileNavProps) {
                                     href={`/${locale}/docs${link.href}`}
                                     className={cn(
                                       "block text-sm py-1.5 px-3 rounded-md",
-                                      isLinkActive ? 
-                                        "bg-primary/10 font-medium" : 
-                                        "text-muted-foreground hover:bg-muted hover:text-foreground transition-colors"
+                                      isLinkActive
+                                        ? "bg-primary/10 font-medium"
+                                        : "text-muted-foreground hover:bg-muted hover:text-foreground transition-colors"
                                     )}
                                   >
                                     {link.label}
@@ -298,4 +326,4 @@ export default function DocMobileNav({ locale }: DocMobileNavProps) {
       </div>
     </div>
   );
-} 
+}
