@@ -25,14 +25,16 @@ export async function middleware(request: NextRequest) {
     const path = request.nextUrl.pathname;
     const userAgent = request.headers.get("user-agent") || "unknown";
 
-    const blockedPaths = [
-      "/wp-admin",
-      "/wordpress",
-      "/wp-login.php",
-      "/wp-content",
-      "/xmlrpc.php",
-      "/wp-includes",
-    ];
+    // Cargar paths bloqueados desde Supabase
+    const { data: blockedPathsData, error: blockedPathsError } = await supabase
+      .from("blocked_paths")
+      .select("path");
+      if (blockedPathsError) {
+        console.error("Error fetching blocked paths:", blockedPathsError);
+        return NextResponse.error();
+      }
+
+    const blockedPaths = blockedPathsData?.map(row => row.path) ?? [];
 
     // 🧱 Si accede a una ruta sospechosa, registramos y bloqueamos
     if (blockedPaths.some(blockedPath => path.startsWith(blockedPath))) {
