@@ -128,14 +128,14 @@ export default function DocSearch({ locale }: DocSearchProps) {
   };
 
   return (
-    <div className="relative w-full max-w-md">
+    <div className="relative w-full max-w-full md:max-w-md">
       <div className="relative">
-        <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+        <Search className="absolute left-2.5 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
         <Input
           ref={inputRef}
           type="text"
           placeholder={t("placeholder")}
-          className="pl-10 pr-10"
+          className="pl-9 pr-9 h-9 text-sm py-1 focus-visible:ring-1 truncate w-full"
           value={query}
           onChange={handleChange}
           onFocus={() => query.trim() !== "" && setIsOpen(true)}
@@ -144,7 +144,7 @@ export default function DocSearch({ locale }: DocSearchProps) {
         {query && (
           <button
             onClick={handleClear}
-            className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
+            className="absolute right-2.5 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
             aria-label={t("clear")}
           >
             <X className="h-4 w-4" />
@@ -163,16 +163,18 @@ export default function DocSearch({ locale }: DocSearchProps) {
                 <p className="text-xs text-muted-foreground px-2 py-1.5">
                   {results.length} {results.length === 1 ? t("result") : t("results")}
                 </p>
-                <div className="max-h-[300px] overflow-y-auto">
+                <div className="max-h-[50vh] md:max-h-[300px] overflow-y-auto">
                   {results.map((item, index) => (
                     <Link
                       key={index}
                       href={`/${locale}/docs/${item.section}${item.path}`}
                       onClick={() => setIsOpen(false)}
-                      className="block px-3 py-2 text-sm hover:bg-muted rounded-md"
+                      className="block px-3 py-2.5 text-sm hover:bg-muted rounded-md"
                     >
                       <span className="font-medium">{item.title}</span>
-                      <span className="text-xs text-muted-foreground ml-2">{t(`sections.${item.section}`)}</span>
+                      <span className="text-xs text-muted-foreground ml-2 block md:inline-block mt-1 md:mt-0">
+                        {t(`sections.${item.section}`)}
+                      </span>
                     </Link>
                   ))}
                 </div>

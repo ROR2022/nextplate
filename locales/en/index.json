@@ -326,6 +326,9 @@
     },
     "sidebar": {
       "gettingStarted": "Getting Started",
+      "menu": "Menu",
+      "current": "Current",
+      "navigationDescription": "Navigate through the documentation",
       "introduction": "Introduction",
       "installation": "Installation",
       "quickStart": "Quick Start",
