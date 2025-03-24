@@ -1,104 +1,306 @@
-<a href="https://demo-nextjs-with-supabase.vercel.app/">
-  <img alt="Next.js and Supabase Starter Kit - the fastest way to build apps with Next.js and Supabase" src="https://demo-nextjs-with-supabase.vercel.app/opengraph-image.png">
-  <h1 align="center">Next.js and Supabase Starter Kit</h1>
-</a>
+# NextPlate
+
+<div align="center">
+  <img src="public/logoNextPlate.png" alt="NextPlate Logo" width="200"/>
+
+  <h3 align="center">Advanced Next.js Boilerplate for Modern Web Applications</h3>
+
+  <p align="center">
+    A production-ready template for building scalable, multilingual web applications with authentication, payments, and AI integrations.
+    <br />
+    <a href="https://nextplate.demo.com"><strong>View Demo »</strong></a>
+    <br />
+    <br />
+    <a href="#getting-started">Quick Start</a>
+    ·
+    <a href="#documentation">Documentation</a>
+    ·
+    <a href="#features">Features</a>
+    ·
+    <a href="https://github.com/yourusername/nextplate/issues">Report Bug</a>
+  </p>
+</div>
 
 <p align="center">
- The fastest way to build apps with Next.js and Supabase
+  <a href="https://github.com/yourusername/nextplate/stargazers">
+    <img src="https://img.shields.io/github/stars/yourusername/nextplate" alt="Stars" />
+  </a>
+  <a href="https://github.com/yourusername/nextplate/network/members">
+    <img src="https://img.shields.io/github/forks/yourusername/nextplate" alt="Forks" />
+  </a>
+  <a href="https://github.com/yourusername/nextplate/issues">
+    <img src="https://img.shields.io/github/issues/yourusername/nextplate" alt="Issues" />
+  </a>
+  <a href="https://github.com/yourusername/nextplate/blob/main/LICENSE">
+    <img src="https://img.shields.io/github/license/yourusername/nextplate" alt="License" />
+  </a>
 </p>
 
-<p align="center">
-  <a href="#features"><strong>Features</strong></a> ·
-  <a href="#demo"><strong>Demo</strong></a> ·
-  <a href="#deploy-to-vercel"><strong>Deploy to Vercel</strong></a> ·
-  <a href="#clone-and-run-locally"><strong>Clone and run locally</strong></a> ·
-  <a href="#feedback-and-issues"><strong>Feedback and issues</strong></a>
-  <a href="#more-supabase-examples"><strong>More Examples</strong></a>
-</p>
-<br/>
+## 📋 Table of Contents
 
-## Features
+- [About The Project](#about-the-project)
+- [Features](#features)
+- [Built With](#built-with)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+  - [Environment Setup](#environment-setup)
+- [Core Integrations](#core-integrations)
+  - [Supabase & Mailgun](#supabase--mailgun)
+  - [Stripe Integration](#stripe-integration)
+  - [OpenAI API](#openai-api)
+- [Documentation](#documentation)
+- [Architecture](#architecture)
+- [Best Practices](#best-practices)
+- [Roadmap](#roadmap)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
 
-- Works across the entire [Next.js](https://nextjs.org) stack
-  - App Router
-  - Pages Router
-  - Middleware
-  - Client
-  - Server
-  - It just works!
-- supabase-ssr. A package to configure Supabase Auth to use cookies
-- Styling with [Tailwind CSS](https://tailwindcss.com)
-- Components with [shadcn/ui](https://ui.shadcn.com/)
-- Optional deployment with [Supabase Vercel Integration and Vercel deploy](#deploy-your-own)
-  - Environment variables automatically assigned to Vercel project
+## 🚀 About The Project
 
-## Demo
+NextPlate is an advanced Next.js boilerplate designed for full-stack developers who want to rapidly build scalable, modern web applications compliant with legal standards. It combines the best tools from the Next.js ecosystem with a focus on regulatory compliance, offering a complete solution that significantly reduces setup time and allows developers to focus on their specific business logic.
 
-You can view a fully working demo at [demo-nextjs-with-supabase.vercel.app](https://demo-nextjs-with-supabase.vercel.app/).
+### Why NextPlate?
 
-## Deploy to Vercel
+- **Save Development Time**: Start with authentication, payments, and AI already integrated.
+- **Best Practices Built-in**: Implements SOLID principles and clean code practices.
+- **Fully Typed**: Built with TypeScript for better development experience.
+- **Internationalization**: Supports multiple languages out of the box.
+- **Legal Compliance**: Includes customizable legal documents and cookie consent banner.
 
-Vercel deployment will guide you through creating a Supabase account and project.
+## ✨ Features
 
-After installation of the Supabase integration, all relevant environment variables will be assigned to the project so the deployment is fully functioning.
+NextPlate includes a comprehensive set of features to accelerate your web application development:
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fvercel%2Fnext.js%2Ftree%2Fcanary%2Fexamples%2Fwith-supabase&project-name=nextjs-with-supabase&repository-name=nextjs-with-supabase&demo-title=nextjs-with-supabase&demo-description=This+starter+configures+Supabase+Auth+to+use+cookies%2C+making+the+user%27s+session+available+throughout+the+entire+Next.js+app+-+Client+Components%2C+Server+Components%2C+Route+Handlers%2C+Server+Actions+and+Middleware.&demo-url=https%3A%2F%2Fdemo-nextjs-with-supabase.vercel.app%2F&external-id=https%3A%2F%2Fgithub.com%2Fvercel%2Fnext.js%2Ftree%2Fcanary%2Fexamples%2Fwith-supabase&demo-image=https%3A%2F%2Fdemo-nextjs-with-supabase.vercel.app%2Fopengraph-image.png)
+### 🔐 Authentication & User Management
+- Secure authentication through Supabase
+- Email/password and social login options
+- Password reset and email verification
+- User profile management
 
-The above will also clone the Starter kit to your GitHub, you can clone that locally and develop locally.
+### 💳 Payment Processing
+- Stripe integration for payments and subscriptions
+- Webhook handling for payment events
+- Subscription management interfaces
 
-If you wish to just develop locally and not deploy to Vercel, [follow the steps below](#clone-and-run-locally).
+### 🌐 Internationalization
+- Multi-language support (English and Spanish included)
+- Easy translation management
+- RTL support
 
-## Clone and run locally
+### 🎨 UI/UX
+- Modern UI components with shadcn/ui
+- Responsive design for all devices
+- Dark/light mode support
+- Accessible components
 
-1. You'll first need a Supabase project which can be made [via the Supabase dashboard](https://database.new)
+### 🤖 AI Integration
+- OpenAI API integration
+- Document search and suggestions
+- AI-powered responses
+- Smart chatbot implementation
 
-2. Create a Next.js app using the Supabase Starter template npx command
+### 🔧 Developer Experience
+- TypeScript for type safety
+- SOLID architecture principles
+- Comprehensive documentation
+- Ready-to-deploy configuration
 
-   ```bash
-   npx create-next-app --example with-supabase with-supabase-app
+### 📜 Legal Compliance
+- GDPR-compliant cookie consent
+- Customizable Terms of Service
+- Privacy Policy templates
+- Data protection features
+
+## 🛠️ Built With
+
+NextPlate leverages modern technologies to provide a robust development experience:
+
+- [Next.js 15.1.6](https://nextjs.org/) - React framework for production
+- [TypeScript](https://www.typescriptlang.org/) - JavaScript with syntax for types
+- [Supabase](https://supabase.com/) - Open source Firebase alternative
+- [Shadcn UI](https://ui.shadcn.com/) - Re-usable UI components
+- [Stripe](https://stripe.com/) - Online payment processing
+- [OpenAI API](https://openai.com/) - AI capabilities
+- [Next-intl](https://next-intl-docs.vercel.app/) - Internationalization
+- [Mailgun](https://www.mailgun.com/) - Email delivery service
+- [React Cookie Consent](https://www.npmjs.com/package/react-cookie-consent) - Cookie consent banner
+
+## 🏁 Getting Started
+
+Follow these instructions to set up NextPlate locally.
+
+### Prerequisites
+
+- Node.js 18.x or later
+- npm or yarn
+- A Supabase account
+- API keys for Stripe, OpenAI, and Mailgun
+
+### Installation
+
+1. Clone the repository
+   ```sh
+   git clone https://github.com/yourusername/nextplate.git
+   cd nextplate
    ```
 
-   ```bash
-   yarn create next-app --example with-supabase with-supabase-app
+2. Install dependencies
+   ```sh
+   npm install
+   # or
+   yarn install
    ```
 
-   ```bash
-   pnpm create next-app --example with-supabase with-supabase-app
+3. Copy example environment file
+   ```sh
+   cp .env.example .env.local
    ```
 
-3. Use `cd` to change into the app's directory
-
-   ```bash
-   cd with-supabase-app
-   ```
-
-4. Rename `.env.example` to `.env.local` and update the following:
-
-   ```
-   NEXT_PUBLIC_SUPABASE_URL=[INSERT SUPABASE PROJECT URL]
-   NEXT_PUBLIC_SUPABASE_ANON_KEY=[INSERT SUPABASE PROJECT API ANON KEY]
-   ```
-
-   Both `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_ANON_KEY` can be found in [your Supabase project's API settings](https://app.supabase.com/project/_/settings/api)
-
-5. You can now run the Next.js local development server:
-
-   ```bash
+4. Start the development server
+   ```sh
    npm run dev
+   # or
+   yarn dev
    ```
 
-   The starter kit should now be running on [localhost:3000](http://localhost:3000/).
+### Environment Setup
 
-6. This template comes with the default shadcn/ui style initialized. If you instead want other ui.shadcn styles, delete `components.json` and [re-install shadcn/ui](https://ui.shadcn.com/docs/installation/next)
+Configure your `.env.local` with the following variables:
 
-> Check out [the docs for Local Development](https://supabase.com/docs/guides/getting-started/local-development) to also run Supabase locally.
+```
+# Supabase
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
 
-## Feedback and issues
+# Stripe
+STRIPE_SECRET_KEY=your_stripe_secret_key
+NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=your_stripe_publishable_key
+STRIPE_WEBHOOK_SECRET=your_stripe_webhook_secret
 
-Please file feedback and issues over on the [Supabase GitHub org](https://github.com/supabase/supabase/issues/new/choose).
+# OpenAI
+OPENAI_API_KEY=your_openai_api_key
 
-## More Supabase examples
+# Mailgun
+MAILGUN_SMTP_HOST=smtp.mailgun.org
+MAILGUN_SMTP_PORT=587
+MAILGUN_SMTP_USER=your_mailgun_smtp_user
+MAILGUN_SMTP_PASSWORD=your_mailgun_smtp_password
+```
 
-- [Next.js Subscription Payments Starter](https://github.com/vercel/nextjs-subscription-payments)
-- [Cookie-based Auth and the Next.js 13 App Router (free course)](https://youtube.com/playlist?list=PL5S4mPUpp4OtMhpnp93EFSo42iQ40XjbF)
-- [Supabase Auth and the Next.js App Router](https://github.com/supabase/supabase/tree/master/examples/auth/nextjs)
+## 🔌 Core Integrations
+
+### Supabase & Mailgun
+
+NextPlate uses Supabase for authentication and database, with Mailgun for reliable email delivery:
+
+1. **Authentication Flow**: Secure login, registration, and password recovery
+2. **Database Structure**: PostgreSQL tables for users, profiles, and subscriptions
+3. **Email Templates**: Customizable templates for authentication emails
+4. **Row Level Security**: Pre-configured policies for data protection
+
+See the [Mailgun Configuration Guide](docs/Guía%20de%20Configuración%20de%20Mailgun.txt) for detailed setup instructions.
+
+### Stripe Integration
+
+The payment system integrates Stripe for processing payments and managing subscriptions:
+
+1. **Checkout Flow**: Pre-built checkout pages for products
+2. **Webhooks**: Event handling for payment lifecycle
+3. **Customer Portal**: User subscription management
+4. **Admin Dashboard**: Subscription overview and management
+
+### OpenAI API
+
+NextPlate includes AI capabilities through the OpenAI API:
+
+1. **Document Search**: Smart search across documentation
+2. **ChatBot**: AI-powered assistance for users
+3. **Content Generation**: Helpers for AI-generated content
+4. **Multilingual Support**: AI responses in the user's language
+
+## 📚 Documentation
+
+NextPlate includes comprehensive documentation to help you understand the codebase:
+
+- **Architecture Overview**: High-level system design and component interaction
+- **Best Practices Guide**: SOLID principles, clean code, and design patterns
+- **API Documentation**: Endpoints and usage examples
+- **Component Library**: Available UI components and their usage
+- **Internationalization**: How to add new languages and translations
+
+Visit the `/docs` directory for detailed documentation files.
+
+## 🏗️ Architecture
+
+NextPlate follows a robust architecture designed for scalability and maintainability:
+
+```
+[User] <--> [Frontend: Next.js Pages] <--> [Backend: Next.js API Routes]
+    |                   |                            |
+    |                   |                            |
+[Supabase Auth]       [Supabase DB]               [Stripe API]
+    |                   |                            |
+[Mailgun SMTP] <---- [Supabase Auth]              [OpenAI API]
+```
+
+The architecture implements separation of concerns and follows the SOLID principles to ensure components are modular and replaceable.
+
+## 🧠 Best Practices
+
+NextPlate is built following software development best practices:
+
+### SOLID Principles
+- **Single Responsibility**: Each component has one reason to change
+- **Open/Closed**: Open for extension, closed for modification
+- **Liskov Substitution**: Derived classes can substitute base classes
+- **Interface Segregation**: No client should depend on methods it doesn't use
+- **Dependency Inversion**: Depend on abstractions, not concrete implementations
+
+### Clean Code
+- Descriptive naming
+- Small, focused functions
+- Proper error handling
+- Minimal dependencies
+
+See our [Best Practices Guide](docs/Guia_de_Mejores_Practicas.txt) for detailed guidance.
+
+## 🛣️ Roadmap
+
+Planned features and improvements:
+
+- [ ] Additional authentication providers
+- [ ] Enhanced AI capabilities
+- [ ] More UI component examples
+- [ ] Performance optimizations
+- [ ] Additional language support
+
+## 🤝 Contributing
+
+Contributions are welcome and appreciated! To contribute:
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## 📄 License
+
+Distributed under the MIT License. See `LICENSE` for more information.
+
+## 📬 Contact
+
+Project Link: [https://github.com/yourusername/nextplate](https://github.com/yourusername/nextplate)
+
+---
+
+<p align="center">
+  <a href="https://nextplate.demo.com">
+    <img src="public/logoNextPlate.png" alt="NextPlate" width="100" />
+  </a>
+  <p align="center">
+    Built with ❤️ for developers who value their time
+  </p>
+</p>
