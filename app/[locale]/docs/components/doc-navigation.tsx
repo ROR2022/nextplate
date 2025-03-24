@@ -23,7 +23,7 @@ export default function DocNavigation({
   const t = useTranslations("docs");
 
   return (
-    <div className="flex justify-between items-center mt-12 pt-6 border-t">
+    <div className="flex justify-between items-center mt-12 pt-6 border-t overflow-x-auto">
       <div>
         {prevPath && (
           <Button variant="ghost" asChild>
