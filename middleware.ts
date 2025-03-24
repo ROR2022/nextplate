@@ -13,6 +13,15 @@ const intlMiddleware = createMiddleware(routing);
 
 export async function middleware(request: NextRequest) {
   try {
+    //esta seccion es para bloquear rutas sospechosas
+    const path = request.nextUrl.pathname;
+
+    const blockedPaths = ['/wp-admin', '/wordpress', '/wp-login.php'];
+  
+    if (blockedPaths.some(bp => path.startsWith(bp))) {
+      return new NextResponse('Not allowed', { status: 403 });
+    }
+
     // Handle root path
     if (request.nextUrl.pathname === '/') {
       return NextResponse.redirect(new URL('/es', request.url));
